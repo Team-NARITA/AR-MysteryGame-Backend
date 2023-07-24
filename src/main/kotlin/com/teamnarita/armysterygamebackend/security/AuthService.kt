@@ -2,7 +2,7 @@ package com.teamnarita.armysterygamebackend.security
 
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
-import com.teamnarita.armysterygamebackend.repository.IUserRepository
+import com.teamnarita.armysterygamebackend.repository.user.IUserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.core.authority.AuthorityUtils
