@@ -21,18 +21,18 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 class SecurityConfig(private val userRepository: IUserRepository) {
     @Bean
     fun securityFilterChain(http: HttpSecurity, authenticationManager: AuthenticationManager): SecurityFilterChain {
-        http.authorizeHttpRequests {
-            it.anyRequest().authenticated()
-        }
-
-        http.addFilter(preAuthenticatedProcessingFilter(authenticationManager))
-
-        http.csrf { it.disable() }
-        http.cors { it.configurationSource(getCorsConfigurationSource()) }
-
-        http.sessionManagement {
-            it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        }
+        http
+            .addFilter(preAuthenticatedProcessingFilter(authenticationManager))
+            .csrf { it.disable() }
+            .cors {
+                it.configurationSource(getCorsConfigurationSource())
+            }
+            .sessionManagement {
+                it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            }
+            .authorizeHttpRequests {
+                it.anyRequest().authenticated()
+            }
 
         return http.build()
     }
