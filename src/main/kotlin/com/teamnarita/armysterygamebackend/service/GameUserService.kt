@@ -8,6 +8,7 @@ import com.teamnarita.armysterygamebackend.repository.chapter.IChapterRepository
 import com.teamnarita.armysterygamebackend.repository.coupon.ICouponRepository
 import com.teamnarita.armysterygamebackend.repository.mystery.IMysteryRepository
 import com.teamnarita.armysterygamebackend.repository.user.IUserRepository
+import com.teamnarita.armysterygamebackend.utility.TimeUtil
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -23,6 +24,8 @@ class GameUserService @Autowired constructor(
         private val logger = LoggerFactory.getLogger(GameUserService::class.java)
     }
 
+    @Autowired
+    private lateinit var timeUtil: TimeUtil
     private val cachedUser = HashMap<String, GameUser>()
 
     @Throws(UserAlreadyExistException::class)
@@ -31,7 +34,7 @@ class GameUserService @Autowired constructor(
             throw UserAlreadyExistException("userId: " + userId + "is Already Exist")
         }
 
-        val userBuilder = GameUserBuilder(userId, userName, 10L)
+        val userBuilder = GameUserBuilder(userId, userName, timeUtil.getCurrentTimeStamp())
         userBuilder.solvedMystery = HashSet()
         userBuilder.clearedChapter = HashSet()
         userBuilder.usedCoupon = HashSet()
