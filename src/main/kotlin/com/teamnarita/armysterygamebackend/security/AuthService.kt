@@ -16,8 +16,7 @@ import org.springframework.stereotype.Service
 class AuthService(@Autowired private val gameUserService: IGameUserService):
     AuthenticationUserDetailsService<PreAuthenticatedAuthenticationToken> {
 
-    @Autowired
-    private lateinit var timeUtil: TimeUtil
+    val timeUtil = TimeUtil
 
     private val firebaseApp = FirebaseAuth.getInstance()
     override fun loadUserDetails(token: PreAuthenticatedAuthenticationToken): UserDetailsImpl {
@@ -32,11 +31,12 @@ class AuthService(@Autowired private val gameUserService: IGameUserService):
                 return UserDetailsImpl(gameUser)
             } else {
                 val gameUser = GameUser.GameUserBuilder(
-                    firebaseToken.uid, "unregisterUser", timeUtil.getCurrentTimeStamp(), GameUser.UserRole.NO_ROLE
+                    firebaseToken.uid, "unregisterUser", timeUtil.getCurrentTimeStamp(), GameUser.UserRole.UNREGISTER_USER
                 ).build()
                 return UserDetailsImpl(gameUser)
             }
         } catch (e: FirebaseException) {
+            println("error")
             throw BadCredentialsException("トークン検証エラー", e)
         }
     }

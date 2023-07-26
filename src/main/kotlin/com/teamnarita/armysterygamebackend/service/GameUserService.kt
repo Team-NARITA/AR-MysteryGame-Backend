@@ -24,8 +24,7 @@ class GameUserService @Autowired constructor(
         private val logger = LoggerFactory.getLogger(GameUserService::class.java)
     }
 
-    @Autowired
-    private lateinit var timeUtil: TimeUtil
+    val timeUtil = TimeUtil
     private val cachedUser = HashMap<String, GameUser>()
 
     @Throws(UserAlreadyExistException::class)
