@@ -1,10 +1,9 @@
 package com.teamnarita.armysterygamebackend.model
 
-import com.teamnarita.armysterygamebackend.model.dto.UserDTO
-
 class GameUser private constructor(
     val userId: String,
     val userName: String,
+    val createAt: Long,
     val solvedMystery: HashSet<String>,
     val clearedChapter: HashSet<String>,
     val usedCoupon: HashSet<String>
@@ -21,14 +20,13 @@ class GameUser private constructor(
         usedCoupon.add(couponId)
     }
 
-    class GameUserBuilder(private val userId: String) {
-        lateinit var userName: String
+    class GameUserBuilder(private val userId: String, private val userName: String, private val createAt: Long) {
         lateinit var solvedMystery: HashSet<String>
         lateinit var clearedChapter: HashSet<String>
         lateinit var usedCoupon: HashSet<String>
 
         fun build(): GameUser {
-            return GameUser(userId, userName, solvedMystery, clearedChapter, usedCoupon)
+            return GameUser(userId, userName, createAt, solvedMystery, clearedChapter, usedCoupon)
         }
     }
 }
