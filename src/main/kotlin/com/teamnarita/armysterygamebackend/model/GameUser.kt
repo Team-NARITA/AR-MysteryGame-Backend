@@ -38,11 +38,11 @@ class GameUser private constructor(
         }
     }
 
-    enum class UserRole(val roleName: String): GrantedAuthority {
-        UNREGISTER_USER("UNREGISTER_USER"),
-        USER("USER"),
-        ADMIN("ADMIN"),
-        NO_ROLE("NO_ROLE");
+    enum class UserRole(val roleName: String, val roleId: Int): GrantedAuthority {
+        UNREGISTER_USER("UNREGISTER_USER", 1),
+        USER("USER", 2),
+        ADMIN("ADMIN", 3),
+        NO_ROLE("NO_ROLE", -1);
 
         companion object {
             fun getRoleById(roleId: Int): UserRole {
