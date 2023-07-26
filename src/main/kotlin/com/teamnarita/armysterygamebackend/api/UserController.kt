@@ -21,11 +21,11 @@ class UserController(private val gameUserService: IGameUserService) {
     }
 
     @PostMapping("/register")
-    fun registerUser(@AuthenticationPrincipal principal: UserDetailsImpl, @RequestBody requestBody: String): ResponseEntity<GameUser> {
+    fun registerUser(@AuthenticationPrincipal principal: UserDetailsImpl, @RequestBody requestBody: RegisterUserBody): ResponseEntity<GameUser> {
 
         try {
             if (principal.gameUser.role == GameUser.UserRole.UNREGISTER_USER) {
-                val gameUser = gameUserService.register(principal.gameUser.userId, "testUser")
+                val gameUser = gameUserService.register(principal.gameUser.userId, requestBody.username)
                 return ResponseEntity(gameUser, HttpStatus.OK)
             } else {
                 return ResponseEntity(HttpStatus.CONFLICT)
@@ -34,4 +34,6 @@ class UserController(private val gameUserService: IGameUserService) {
             return ResponseEntity(HttpStatus.BAD_REQUEST)
         }
     }
+
+    data class RegisterUserBody(var username: String)
 }
