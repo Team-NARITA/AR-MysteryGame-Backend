@@ -76,7 +76,5 @@ class GameUserService @Autowired constructor(
 
     override fun saveUser(user: GameUser) {
         userRepository.save(user)
-        chapterRepository.save(user)
-        mysteryRepository.save(user)
     }
 }
