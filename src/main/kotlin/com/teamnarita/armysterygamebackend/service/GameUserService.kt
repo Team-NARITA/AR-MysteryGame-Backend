@@ -45,6 +45,11 @@ class GameUserService @Autowired constructor(
         return user
     }
 
+    override fun userExist(userId: String): Boolean {
+        if (cachedUser.containsKey(userId)) return true
+        return userRepository.exists(userId)
+    }
+
     @Throws(UserNotFoundException::class)
     override fun getUser(userId: String): GameUser {
         if (cachedUser.containsKey(userId)) return cachedUser[userId]!!

@@ -1,6 +1,6 @@
 package com.teamnarita.armysterygamebackend.security
 
-import com.teamnarita.armysterygamebackend.repository.user.IUserRepository
+import com.teamnarita.armysterygamebackend.service.IGameUserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker
@@ -18,7 +18,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfig(private val userRepository: IUserRepository) {
+class SecurityConfig(private val gameUserService: IGameUserService) {
     @Bean
     fun securityFilterChain(http: HttpSecurity, authenticationManager: AuthenticationManager): SecurityFilterChain {
         http
@@ -31,7 +31,8 @@ class SecurityConfig(private val userRepository: IUserRepository) {
                 it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             }
             .authorizeHttpRequests {
-                it.anyRequest().authenticated()
+                it.requestMatchers("/users/register").permitAll()
+                    .anyRequest().authenticated()
             }
 
         return http.build()
@@ -40,7 +41,7 @@ class SecurityConfig(private val userRepository: IUserRepository) {
     @Bean
     fun preAuthenticatedAuthenticationProvider(): PreAuthenticatedAuthenticationProvider {
         val preAuthenticatedAuthenticationProvider = PreAuthenticatedAuthenticationProvider()
-        preAuthenticatedAuthenticationProvider.setPreAuthenticatedUserDetailsService(AuthService(userRepository))
+        preAuthenticatedAuthenticationProvider.setPreAuthenticatedUserDetailsService(AuthService(gameUserService))
         preAuthenticatedAuthenticationProvider.setUserDetailsChecker(AccountStatusUserDetailsChecker())
         return preAuthenticatedAuthenticationProvider
     }
