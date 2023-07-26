@@ -10,6 +10,8 @@ interface IGameUserService {
     @Throws(UserAlreadyExistException::class)
     fun register(userId: String, userName: String): GameUser
 
+    fun userExist(userId: String): Boolean
+
     @Throws(UserNotFoundException::class)
     fun getUser(userId: String): GameUser
 

@@ -34,7 +34,7 @@ class GameUserService @Autowired constructor(
             throw UserAlreadyExistException("userId: " + userId + "is Already Exist")
         }
 
-        val userBuilder = GameUserBuilder(userId, userName, timeUtil.getCurrentTimeStamp())
+        val userBuilder = GameUserBuilder(userId, userName, timeUtil.getCurrentTimeStamp(), GameUser.UserRole.USER)
         userBuilder.solvedMystery = HashSet()
         userBuilder.clearedChapter = HashSet()
         userBuilder.usedCoupon = HashSet()
@@ -52,7 +52,8 @@ class GameUserService @Autowired constructor(
         val userDto = userRepository.find(userId)
             ?: throw UserNotFoundException("userId: $userId is NotFound")
 
-        val userBuilder = GameUserBuilder(userDto.userId, userDto.userName, userDto.createAt)
+        val userBuilder = GameUserBuilder(userDto.userId, userDto.userName, userDto.createAt,
+            GameUser.UserRole.getRoleById(userDto.roleId))
         val solvedMystery = mysteryRepository.get(userId)
         val clearedChapter = chapterRepository.get(userId)
         val usedCoupon = couponRepository.get(userId)
