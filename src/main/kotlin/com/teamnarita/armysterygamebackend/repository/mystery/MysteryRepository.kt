@@ -3,15 +3,13 @@ package com.teamnarita.armysterygamebackend.repository.mystery
 import com.teamnarita.armysterygamebackend.model.dto.SolvedMystery
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
-import org.springframework.jdbc.core.queryForList
 import org.springframework.stereotype.Repository
 import java.sql.ResultSet
 
 @Repository
 class MysteryRepository(val jdbcTemplate: JdbcTemplate): IMysteryRepository {
     override fun getSolvedMystery(userId: String): HashSet<SolvedMystery> {
-        val solvedMysteries = jdbcTemplate.queryForList<SolvedMystery>("SELECT * FROM solved_mystery WHERE user_id='$userId'")
-        println(solvedMysteries)
+        val solvedMysteries = jdbcTemplate.query("SELECT * FROM solved_mystery WHERE user_id='$userId'", SolvedMysteryRowMapper())
         return solvedMysteries.toHashSet()
     }
 
