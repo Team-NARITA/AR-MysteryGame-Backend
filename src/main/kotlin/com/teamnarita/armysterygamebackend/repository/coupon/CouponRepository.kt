@@ -1,10 +1,11 @@
 package com.teamnarita.armysterygamebackend.repository.coupon
 
+import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
 import org.springframework.stereotype.Repository
 
 @Repository
 class CouponRepository: ICouponRepository {
-    override fun get(userId: String): HashSet<String> {
+    override fun getUsedCoupon(userId: String): HashSet<UsedCoupon> {
         TODO("Not yet implemented")
     }
 
