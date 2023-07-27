@@ -2,6 +2,7 @@ package com.teamnarita.armysterygamebackend.repository.user
 
 import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.dto.UserDTO
+import org.slf4j.LoggerFactory
 import org.springframework.dao.IncorrectResultSizeDataAccessException
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
@@ -10,6 +11,9 @@ import java.sql.ResultSet
 
 @Repository
 class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
+    companion object {
+        private val Logger = LoggerFactory.getLogger(UserRepository::class.java)
+    }
 
     override fun find(userId: String): UserDTO? {
         try {
@@ -21,7 +25,7 @@ class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
     }
 
     override fun save(gameUser: GameUser): Boolean {
-        println(gameUser.userId)
+        Logger.info("Player ${gameUser.userName} Saved userId: [${gameUser.userId}]")
         val sql = "REPLACE INTO game_user (user_id, user_name, create_at, role_id) VALUES ( ?, ?, ?, ?)"
 
         jdbcTemplate.update(sql, gameUser.userId, gameUser.userName, gameUser.createAt, gameUser.role.roleId)
