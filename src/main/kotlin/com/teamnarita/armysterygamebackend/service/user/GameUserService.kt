@@ -21,7 +21,7 @@ class GameUserService @Autowired constructor(
     private val couponRepository: ICouponRepository
 ) : IGameUserService {
     companion object {
-        private val logger = LoggerFactory.getLogger(GameUserService::class.java)
+        private val Logger = LoggerFactory.getLogger(GameUserService::class.java)
     }
 
     val timeUtil = TimeUtil
@@ -72,9 +72,11 @@ class GameUserService @Autowired constructor(
 
     private fun cacheUser(user: GameUser) {
         cachedUser[user.userId] = user
+        Logger.info("Add ${user.userName} to Cache")
     }
 
     override fun saveUser(user: GameUser) {
         userRepository.save(user)
+        Logger.info("Player ${user.userName} Saved userId: [${user.userId}]")
     }
 }
