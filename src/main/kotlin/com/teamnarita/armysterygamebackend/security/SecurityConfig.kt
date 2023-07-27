@@ -31,8 +31,7 @@ class SecurityConfig(private val gameUserService: IGameUserService) {
                 it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             }
             .authorizeHttpRequests {
-                it.requestMatchers("/users/register").permitAll()
-                    .anyRequest().authenticated()
+                it.anyRequest().authenticated()
             }
 
         return http.build()
