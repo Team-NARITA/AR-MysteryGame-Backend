@@ -1,14 +1,16 @@
 package com.teamnarita.armysterygamebackend.repository.coupon
 
 import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
+import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.stereotype.Repository
 import java.sql.ResultSet
 
 @Repository
-class CouponRepository: ICouponRepository {
+class CouponRepository(private val jdbcTemplate: JdbcTemplate): ICouponRepository {
     override fun getUsedCoupon(userId: String): HashSet<UsedCoupon> {
-        TODO("Not yet implemented")
+        val usedCoupon = jdbcTemplate.query("SELECT * FROM used_coupon WHERE user_id='$userId'", UsedCouponRowMapper())
+        return usedCoupon.toHashSet()
     }
 
     private class UsedCouponRowMapper: RowMapper<UsedCoupon> {
