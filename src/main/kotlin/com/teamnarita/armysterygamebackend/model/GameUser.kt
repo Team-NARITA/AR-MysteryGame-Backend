@@ -1,5 +1,8 @@
 package com.teamnarita.armysterygamebackend.model
 
+import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
+import com.teamnarita.armysterygamebackend.model.dto.SolvedMystery
+import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
 import org.springframework.security.core.GrantedAuthority
 
 class GameUser private constructor(
@@ -7,20 +10,20 @@ class GameUser private constructor(
     val userName: String,
     val createAt: Long,
     val role: UserRole,
-    val solvedMystery: HashSet<String>,
-    val clearedChapter: HashSet<String>,
-    val usedCoupon: HashSet<String>
+    val solvedMystery: HashSet<SolvedMystery>,
+    val clearedChapter: HashSet<ClearedChapter>,
+    val usedCoupon: HashSet<UsedCoupon>
 ) {
-    fun addSolvedMystery(mysteryId: String) {
-        solvedMystery.add(mysteryId)
+    fun addSolvedMystery(mystery: SolvedMystery) {
+        solvedMystery.add(mystery)
     }
 
-    fun addClearedChapter(chapterId: String) {
-        clearedChapter.add(chapterId)
+    fun addClearedChapter(chapter: ClearedChapter) {
+        clearedChapter.add(chapter)
     }
 
-    fun addUsedCoupon(couponId: String) {
-        usedCoupon.add(couponId)
+    fun addUsedCoupon(coupon: UsedCoupon) {
+        usedCoupon.add(coupon)
     }
 
     class GameUserBuilder(
@@ -29,9 +32,9 @@ class GameUser private constructor(
         private val createAt: Long,
         private val role: UserRole
     ) {
-        var solvedMystery: HashSet<String> = hashSetOf()
-        var clearedChapter: HashSet<String> = hashSetOf()
-        var usedCoupon: HashSet<String> = hashSetOf()
+        var solvedMystery: HashSet<SolvedMystery> = hashSetOf()
+        var clearedChapter: HashSet<ClearedChapter> = hashSetOf()
+        var usedCoupon: HashSet<UsedCoupon> = hashSetOf()
 
         fun build(): GameUser {
             return GameUser(userId, userName, createAt, role, solvedMystery, clearedChapter, usedCoupon)
