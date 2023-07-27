@@ -1,5 +1,7 @@
 package com.teamnarita.armysterygamebackend.repository.coupon
 
+import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
+
 interface ICouponRepository {
-    fun get(userId: String): HashSet<String>
+    fun getUsedCoupon(userId: String): HashSet<UsedCoupon>
 }

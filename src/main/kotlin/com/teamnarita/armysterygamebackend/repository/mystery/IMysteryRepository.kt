@@ -1,5 +1,7 @@
 package com.teamnarita.armysterygamebackend.repository.mystery
 
+import com.teamnarita.armysterygamebackend.model.dto.SolvedMystery
+
 interface IMysteryRepository {
-    fun get(userId: String): HashSet<String>
+    fun getSolvedMystery(userId: String): HashSet<SolvedMystery>
 }
