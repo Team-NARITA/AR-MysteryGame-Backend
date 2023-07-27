@@ -15,11 +15,10 @@ class MysteryRepository(val jdbcTemplate: JdbcTemplate): IMysteryRepository {
 
     private class SolvedMysteryRowMapper: RowMapper<SolvedMystery> {
         override fun mapRow(rs: ResultSet, rowNum: Int): SolvedMystery {
-            val id = rs.getLong("id")
             val userId = rs.getString("user_id")
             val mysteryId = rs.getString("mystery_id")
             val solvedAt = rs.getLong("solved_at")
-            return SolvedMystery(id, userId, mysteryId, solvedAt)
+            return SolvedMystery(userId, mysteryId, solvedAt)
         }
     }
 }
