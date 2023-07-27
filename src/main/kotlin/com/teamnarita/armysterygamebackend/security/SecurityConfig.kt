@@ -1,6 +1,6 @@
 package com.teamnarita.armysterygamebackend.security
 
-import com.teamnarita.armysterygamebackend.service.IGameUserService
+import com.teamnarita.armysterygamebackend.service.user.IGameUserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker

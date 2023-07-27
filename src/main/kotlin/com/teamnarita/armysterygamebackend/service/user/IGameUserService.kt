@@ -1,4 +1,4 @@
-package com.teamnarita.armysterygamebackend.service
+package com.teamnarita.armysterygamebackend.service.user
 
 import com.teamnarita.armysterygamebackend.exception.UserAlreadyExistException
 import com.teamnarita.armysterygamebackend.exception.UserNotFoundException

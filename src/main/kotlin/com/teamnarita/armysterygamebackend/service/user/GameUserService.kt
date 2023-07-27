@@ -1,4 +1,4 @@
-package com.teamnarita.armysterygamebackend.service
+package com.teamnarita.armysterygamebackend.service.user
 
 import com.teamnarita.armysterygamebackend.exception.UserAlreadyExistException
 import com.teamnarita.armysterygamebackend.exception.UserNotFoundException
@@ -58,9 +58,9 @@ class GameUserService @Autowired constructor(
 
         val userBuilder = GameUserBuilder(userDto.userId, userDto.userName, userDto.createAt,
             GameUser.UserRole.getRoleById(userDto.roleId))
-        val solvedMystery = mysteryRepository.get(userId)
-        val clearedChapter = chapterRepository.get(userId)
-        val usedCoupon = couponRepository.get(userId)
+        val solvedMystery = mysteryRepository.getSolvedMystery(userId)
+        val clearedChapter = chapterRepository.getClearedChapter(userId)
+        val usedCoupon = couponRepository.getUsedCoupon(userId)
         userBuilder.solvedMystery = solvedMystery
         userBuilder.clearedChapter = clearedChapter
         userBuilder.usedCoupon = usedCoupon

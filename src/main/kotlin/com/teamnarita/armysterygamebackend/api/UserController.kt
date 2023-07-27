@@ -3,7 +3,7 @@ package com.teamnarita.armysterygamebackend.api
 import com.teamnarita.armysterygamebackend.exception.UserAlreadyExistException
 import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.UserDetailsImpl
-import com.teamnarita.armysterygamebackend.service.IGameUserService
+import com.teamnarita.armysterygamebackend.service.user.IGameUserService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.annotation.AuthenticationPrincipal

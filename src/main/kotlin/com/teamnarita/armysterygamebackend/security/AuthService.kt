@@ -4,7 +4,7 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.UserDetailsImpl
-import com.teamnarita.armysterygamebackend.service.IGameUserService
+import com.teamnarita.armysterygamebackend.service.user.IGameUserService
 import com.teamnarita.armysterygamebackend.utility.TimeUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.BadCredentialsException
