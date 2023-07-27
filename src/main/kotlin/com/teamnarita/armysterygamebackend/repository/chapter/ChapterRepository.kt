@@ -15,11 +15,10 @@ class ChapterRepository(private val jdbcTemplate: JdbcTemplate): IChapterReposit
 
     private class ClearedChapterRowMapper: RowMapper<ClearedChapter> {
         override fun mapRow(rs: ResultSet, rowNum: Int): ClearedChapter {
-            val id = rs.getLong("id")
             val userId = rs.getString("user_id")
             val chapterId = rs.getString("chapter_id")
             val clearedAt = rs.getLong("cleared_at")
-            return ClearedChapter(id, userId, chapterId, clearedAt)
+            return ClearedChapter(userId, chapterId, clearedAt)
         }
     }
 }
