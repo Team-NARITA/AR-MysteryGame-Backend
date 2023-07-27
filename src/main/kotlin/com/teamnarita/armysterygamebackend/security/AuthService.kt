@@ -6,15 +6,20 @@ import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.UserDetailsImpl
 import com.teamnarita.armysterygamebackend.service.user.IGameUserService
 import com.teamnarita.armysterygamebackend.utility.TimeUtil
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken
 import org.springframework.stereotype.Service
+import java.util.logging.Logger
 
 @Service
 class AuthService(@Autowired private val gameUserService: IGameUserService):
     AuthenticationUserDetailsService<PreAuthenticatedAuthenticationToken> {
+    companion object {
+        private val Logger = LoggerFactory.getLogger(AuthService::class.java)
+    }
 
     val timeUtil = TimeUtil
 
@@ -36,7 +41,7 @@ class AuthService(@Autowired private val gameUserService: IGameUserService):
                 return UserDetailsImpl(gameUser)
             }
         } catch (e: FirebaseException) {
-            println("error")
+            Logger.info("Token Verify Error: $credential")
             throw BadCredentialsException("トークン検証エラー", e)
         }
     }
