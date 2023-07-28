@@ -13,6 +13,11 @@ class ChapterRepository(private val jdbcTemplate: JdbcTemplate): IChapterReposit
         return clearedChapter.toHashSet()
     }
 
+    override fun addClearedChapter(clearedChapter: ClearedChapter) {
+        jdbcTemplate.update("INSERT INTO cleared_chapter (id, user_id, chapter_id, cleared_at) VALUES (NULL, ?, ?, ?)",
+            clearedChapter.userId, clearedChapter.chapterId, clearedChapter.clearedAt)
+    }
+
     private class ClearedChapterRowMapper: RowMapper<ClearedChapter> {
         override fun mapRow(rs: ResultSet, rowNum: Int): ClearedChapter {
             val userId = rs.getString("user_id")
