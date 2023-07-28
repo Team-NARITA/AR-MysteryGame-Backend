@@ -1,4 +1,4 @@
 package com.teamnarita.armysterygamebackend.exception
 
-class UserNotFoundException(msg: String): Exception(msg) {
+class UserNotFoundException(val userId: String, msg: String): Exception(msg) {
 }

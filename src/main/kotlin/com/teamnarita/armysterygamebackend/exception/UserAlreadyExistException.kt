@@ -1,4 +1,4 @@
 package com.teamnarita.armysterygamebackend.exception
 
-class UserAlreadyExistException(msg: String): Exception(msg) {
+class UserAlreadyExistException(val userId: String, msg: String): Exception(msg) {
 }

@@ -30,7 +30,7 @@ class GameUserService @Autowired constructor(
     @Throws(UserAlreadyExistException::class)
     override fun register(userId: String, userName: String): GameUser {
         if (userRepository.exists(userId)) {
-            throw UserAlreadyExistException("userId: " + userId + "is Already Exist")
+            throw UserAlreadyExistException(userId ,"userId: " + userId + "is Already Exist")
         }
 
         val userBuilder = GameUserBuilder(userId, userName, timeUtil.getCurrentTimeStamp(), GameUser.UserRole.USER)
@@ -54,7 +54,7 @@ class GameUserService @Autowired constructor(
         if (cachedUser.containsKey(userId)) return cachedUser[userId]!!
 
         val userDto = userRepository.find(userId)
-            ?: throw UserNotFoundException("userId: $userId is NotFound")
+            ?: throw UserNotFoundException(userId ,"userId: $userId is NotFound")
 
         val userBuilder = GameUserBuilder(userDto.userId, userDto.userName, userDto.createAt,
             GameUser.UserRole.getRoleById(userDto.roleId))
