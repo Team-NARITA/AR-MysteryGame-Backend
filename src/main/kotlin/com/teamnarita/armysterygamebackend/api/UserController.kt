@@ -28,6 +28,12 @@ class UserController(private val gameUserService: IGameUserService) {
         return ResponseEntity(gameUser, HttpStatus.OK)
     }
 
+    @GetMapping("/")
+    fun getUser(@AuthenticationPrincipal principal: UserDetailsImpl, @RequestBody requestBody: GetUserRequestBody): ResponseEntity<GameUser> {
+        val gameUser = gameUserService.getUser(requestBody.userId)
+        return ResponseEntity(gameUser, HttpStatus.OK)
+    }
+
     @ExceptionHandler(UserAlreadyExistException::class)
     fun handleException(ex: UserAlreadyExistException): ErrorResponse {
         return ErrorResponse.create(ex, HttpStatus.CONFLICT, "userId: ${ex.userId} is Already Exist")
@@ -39,4 +45,5 @@ class UserController(private val gameUserService: IGameUserService) {
     }
 
     data class RegisterUserBody(var username: String)
+    data class GetUserRequestBody(var userId: String)
 }
