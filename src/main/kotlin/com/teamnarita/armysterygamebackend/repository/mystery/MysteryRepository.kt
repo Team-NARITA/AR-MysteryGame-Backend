@@ -13,9 +13,9 @@ class MysteryRepository(val jdbcTemplate: JdbcTemplate): IMysteryRepository {
         return solvedMysteries.toHashSet()
     }
 
-    override fun addSolvedMystery(userId: String, solvedMystery: SolvedMystery) {
+    override fun addSolvedMystery(solvedMystery: SolvedMystery) {
         jdbcTemplate.update("INSERT INTO solved_mystery (id, user_id, mystery_id, solved_at) VALUES (NULL, ?, ?, ?)",
-            userId, solvedMystery.mysteryId, solvedMystery.solvedAt)
+            solvedMystery.userId, solvedMystery.mysteryId, solvedMystery.solvedAt)
     }
 
     private class SolvedMysteryRowMapper: RowMapper<SolvedMystery> {

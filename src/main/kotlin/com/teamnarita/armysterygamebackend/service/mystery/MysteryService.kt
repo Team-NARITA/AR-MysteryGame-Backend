@@ -12,7 +12,7 @@ class MysteryService(private val mysteryRepository: IMysteryRepository): IMyster
 
     override fun solveMystery(user: GameUser, mysteryId: String): SolvedMystery {
         val solvedMystery = SolvedMystery(user.userId, mysteryId, timeUtil.getCurrentTimeStamp())
-        mysteryRepository.addSolvedMystery(user.userId, solvedMystery)
+        mysteryRepository.addSolvedMystery(solvedMystery)
         return solvedMystery
     }
 }
