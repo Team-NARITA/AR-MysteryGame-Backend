@@ -8,17 +8,12 @@ import java.sql.ResultSet
 
 @Repository
 class MysteryRepository(val jdbcTemplate: JdbcTemplate): IMysteryRepository {
-    companion object {
-
-    }
-
     override fun getSolvedMystery(userId: String): HashSet<SolvedMystery> {
         val solvedMysteries = jdbcTemplate.query("SELECT * FROM solved_mystery WHERE user_id='$userId'", SolvedMysteryRowMapper())
         return solvedMysteries.toHashSet()
     }
 
     override fun addSolvedMystery(userId: String, solvedMystery: SolvedMystery) {
-
         jdbcTemplate.update("INSERT INTO solved_mystery (id, user_id, mystery_id, solved_at) VALUES (NULL, ?, ?, ?)",
             userId, solvedMystery.mysteryId, solvedMystery.solvedAt)
     }

@@ -10,7 +10,6 @@ import java.sql.ResultSet
 
 @Repository
 class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
-
     override fun find(userId: String): UserDTO? {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM game_user WHERE user_id='$userId'", UserRowMapper())
