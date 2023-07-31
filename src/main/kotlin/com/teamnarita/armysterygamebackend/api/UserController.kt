@@ -14,11 +14,6 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("v1/users")
 class UserController(private val gameUserService: IGameUserService) {
-    @GetMapping("/self")
-    fun hello(@AuthenticationPrincipal principal: UserDetailsImpl): ResponseEntity<GameUser> {
-        return ResponseEntity(principal.gameUser, HttpStatus.OK)
-    }
-
     @PostMapping("/register")
     fun registerUser(@AuthenticationPrincipal principal: UserDetailsImpl, @RequestBody requestBody: RegisterUserBody): ResponseEntity<GameUser> {
         val gameUser = gameUserService.register(principal.gameUser.userId, requestBody.username)
@@ -29,6 +24,11 @@ class UserController(private val gameUserService: IGameUserService) {
     fun getUser(@AuthenticationPrincipal principal: UserDetailsImpl, @RequestBody requestBody: GetUserRequestBody): ResponseEntity<GameUser> {
         val gameUser = gameUserService.getUser(requestBody.userId)
         return ResponseEntity(gameUser, HttpStatus.OK)
+    }
+
+    @GetMapping("/self")
+    fun getSelf(@AuthenticationPrincipal principal: UserDetailsImpl): ResponseEntity<GameUser> {
+        return ResponseEntity(principal.gameUser, HttpStatus.OK)
     }
 
     @ExceptionHandler(UserAlreadyExistException::class)
