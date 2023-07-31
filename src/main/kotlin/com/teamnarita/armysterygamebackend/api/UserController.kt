@@ -14,11 +14,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("v1/users")
 class UserController(private val gameUserService: IGameUserService) {
-    @GetMapping("/hello")
+    @GetMapping("/self")
     fun hello(@AuthenticationPrincipal principal: UserDetailsImpl): ResponseEntity<GameUser> {
-
-        println(principal)
-
         return ResponseEntity(principal.gameUser, HttpStatus.OK)
     }
 
