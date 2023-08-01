@@ -1,7 +1,7 @@
 package com.teamnarita.armysterygamebackend.service.user
 
-import com.teamnarita.armysterygamebackend.exception.UserAlreadyExistException
-import com.teamnarita.armysterygamebackend.exception.UserNotFoundException
+import com.teamnarita.armysterygamebackend.exception.user.UserAlreadyExistException
+import com.teamnarita.armysterygamebackend.exception.user.UserNotFoundException
 import com.teamnarita.armysterygamebackend.model.GameUser
 import kotlin.jvm.Throws
 
