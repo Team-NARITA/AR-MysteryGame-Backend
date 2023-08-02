@@ -5,4 +5,6 @@ import com.teamnarita.armysterygamebackend.model.dto.SolvedMystery
 
 interface IMysteryService {
     fun solveMystery(user: GameUser, mysteryId: String): SolvedMystery
+
+    fun checkAnswer(mysteryId: String, answer: String): Boolean
 }

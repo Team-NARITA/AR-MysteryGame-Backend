@@ -16,4 +16,8 @@ class MysteryService(private val mysteryRepository: IMysteryRepository): IMyster
         user.addSolvedMystery(solvedMystery)
         return solvedMystery
     }
+
+    override fun checkAnswer(mysteryId: String, answer: String): Boolean {
+        TODO("Not yet implemented")
+    }
 }
