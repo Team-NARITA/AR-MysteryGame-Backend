@@ -21,8 +21,8 @@ class UserController(private val gameUserService: IGameUserService) {
     }
 
     @GetMapping("/")
-    fun getUser(@AuthenticationPrincipal principal: UserDetailsImpl, @RequestBody requestBody: GetUserRequestBody): ResponseEntity<GameUser> {
-        val gameUser = gameUserService.getUser(requestBody.userId)
+    fun getUser(@AuthenticationPrincipal principal: UserDetailsImpl, @RequestParam userId: String): ResponseEntity<GameUser> {
+        val gameUser = gameUserService.getUser(userId)
         return ResponseEntity(gameUser, HttpStatus.OK)
     }
 
@@ -42,5 +42,4 @@ class UserController(private val gameUserService: IGameUserService) {
     }
 
     data class RegisterUserBody(var username: String)
-    data class GetUserRequestBody(var userId: String)
 }
