@@ -1,5 +1,7 @@
 package com.teamnarita.armysterygamebackend.service.chapter
 
+import com.teamnarita.armysterygamebackend.exception.chapter.ChapterNotFoundException
+import com.teamnarita.armysterygamebackend.exception.chapter.ClearJudgmentException
 import com.teamnarita.armysterygamebackend.model.ChapterData
 import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
@@ -12,7 +14,14 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
     private val chapterList: LinkedHashSet<ChapterData> = chapterRepository.loadChapterMaster()
 
     override fun clearChapter(user: GameUser, chapterId: String): ClearedChapter {
-        TODO("Not yet implemented")
+        val chapter = getChapterById(chapterId)
+        if (!chapter.belongMysteries.all { user.isSolvedMystery(it) })
+            throw ClearJudgmentException(user.userId, "必要な謎を解いていません")
+
+        val clearedChapter = ClearedChapter(user.userId, chapterId, TimeUtil.getCurrentTimeStamp())
+        chapterRepository.addClearedChapter(clearedChapter)
+        user.addClearedChapter(clearedChapter)
+        return clearedChapter
     }
 
     override fun getCurrentChapter(user: GameUser): ChapterData {

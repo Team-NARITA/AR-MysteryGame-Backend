@@ -26,6 +26,10 @@ class GameUser private constructor(
         usedCoupon.add(coupon)
     }
 
+    fun isSolvedMystery(mysteryId: String): Boolean {
+        return solvedMystery.any { it.mysteryId == mysteryId}
+    }
+
     fun isClearedChapter(chapterId: String): Boolean {
         return clearedChapter.any { it.chapterId == chapterId }
     }
