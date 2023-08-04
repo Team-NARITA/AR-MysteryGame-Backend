@@ -8,11 +8,13 @@ import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
 import com.teamnarita.armysterygamebackend.repository.chapter.IChapterRepository
 import com.teamnarita.armysterygamebackend.utility.TimeUtil
 import org.springframework.stereotype.Service
+import kotlin.jvm.Throws
 
 @Service
 class ChapterService(private val chapterRepository: IChapterRepository): IChapterService {
     private val chapterList: LinkedHashSet<ChapterData> = chapterRepository.loadChapterMaster()
 
+    @Throws(ClearJudgmentException::class, ChapterNotFoundException::class)
     override fun clearChapter(user: GameUser, chapterId: String): ClearedChapter {
         val chapter = getChapterById(chapterId)
         if (!chapter.belongMysteries.all { user.isSolvedMystery(it) })
@@ -32,8 +34,10 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
         return chapterList.last()
     }
 
+    @Throws(ChapterNotFoundException::class)
     override fun getChapterById(chapterId: String): ChapterData {
-        return chapterList.firstOrNull { it.chapterId == chapterId } ?: throw ChapterNotFoundException("ChapterId: $chapterId が見つかりません")
+        return chapterList.firstOrNull { it.chapterId == chapterId }
+            ?: throw ChapterNotFoundException("ChapterId: $chapterId が見つかりません")
     }
 
     private fun getFirstChapter(): ChapterData {
