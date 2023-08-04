@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.*
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 @RestController
 @RequestMapping("v1/chapter")
@@ -19,12 +17,7 @@ class ChapterController(private val chapterService: IChapterService) {
         val gameUser = principal.gameUser
         val chapterFile = chapterService.getChapterFileByUser(gameUser, chapterId)
 
-        val stringBuffer = StringBuffer()
-        val bufferedReader = BufferedReader(InputStreamReader(chapterFile.inputStream(), "UTF-8"))
-
-        stringBuffer.append(bufferedReader.readLines())
-
-        return stringBuffer.toString()
+        return chapterFile.bufferedReader().use { it.readText() }
     }
 
     @GetMapping("/info/{chapterId}")
