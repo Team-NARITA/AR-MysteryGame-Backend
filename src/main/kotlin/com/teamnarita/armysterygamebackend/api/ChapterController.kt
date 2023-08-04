@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("v1/chapter")
 class ChapterController(private val chapterService: IChapterService) {
-    @GetMapping("/file/{chapterId}")
-    fun getChapterFile(@AuthenticationPrincipal principal: UserDetailsImpl, @PathVariable chapterId: String): String {
+    @GetMapping("/file/{chapterId}", produces = ["application/json"])
+    fun getChapterFile(@AuthenticationPrincipal principal: UserDetailsImpl, @PathVariable chapterId: String): ResponseEntity<String> {
         val gameUser = principal.gameUser
         val chapterFile = chapterService.getChapterFileByUser(gameUser, chapterId)
 
-        return chapterFile.bufferedReader().use { it.readText() }
+        return ResponseEntity(chapterFile.bufferedReader().use { it.readText() }, HttpStatus.OK)
     }
 
     @GetMapping("/info/{chapterId}")
