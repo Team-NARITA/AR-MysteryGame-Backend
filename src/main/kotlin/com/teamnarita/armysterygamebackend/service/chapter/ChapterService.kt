@@ -1,6 +1,7 @@
 package com.teamnarita.armysterygamebackend.service.chapter
 
 import com.teamnarita.armysterygamebackend.exception.chapter.ChapterNotFoundException
+import com.teamnarita.armysterygamebackend.exception.UnauthorizedAccessException
 import com.teamnarita.armysterygamebackend.exception.chapter.ClearJudgmentException
 import com.teamnarita.armysterygamebackend.model.ChapterData
 import com.teamnarita.armysterygamebackend.model.GameUser
@@ -8,6 +9,7 @@ import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
 import com.teamnarita.armysterygamebackend.repository.chapter.IChapterRepository
 import com.teamnarita.armysterygamebackend.utility.TimeUtil
 import org.springframework.stereotype.Service
+import java.io.File
 import kotlin.jvm.Throws
 
 @Service
@@ -38,6 +40,27 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
     override fun getChapterById(chapterId: String): ChapterData {
         return chapterList.firstOrNull { it.chapterId == chapterId }
             ?: throw ChapterNotFoundException("ChapterId: $chapterId が見つかりません")
+    }
+
+    @Throws(UnauthorizedAccessException::class)
+    override fun getChapterDataByUser(user: GameUser, chapterId: String): ChapterData {
+        if (authorizeAccess(user, chapterId)) {
+            return getChapterById(chapterId)
+        }
+        throw UnauthorizedAccessException(user.userId, "チャプターにアクセス権限がありません")
+    }
+
+    @Throws(UnauthorizedAccessException::class)
+    override fun getChapterFileByUser(user: GameUser, chapterId: String): File {
+        if (authorizeAccess(user, chapterId)) {
+            return chapterRepository.getChapterFile(chapterId)
+        }
+        throw UnauthorizedAccessException(user.userId, "チャプターにアクセス権限がありません")
+    }
+
+    private fun authorizeAccess(user: GameUser, chapterId: String): Boolean {
+        if (getCurrentChapter(user).chapterId == chapterId) return true
+        return getCurrentChapter(user).chapterId == chapterId
     }
 
     private fun getFirstChapter(): ChapterData {
