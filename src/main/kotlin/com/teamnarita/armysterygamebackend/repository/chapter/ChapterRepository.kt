@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.stereotype.Repository
 import java.io.File
+import java.io.FileNotFoundException
 import java.nio.file.Paths
 import java.sql.ResultSet
 
@@ -22,6 +23,12 @@ class ChapterRepository(private val jdbcTemplate: JdbcTemplate): IChapterReposit
 
     override fun loadChapterMaster(): LinkedHashSet<ChapterData> {
         return jsonMapper.readValue(chapterMaster)
+    }
+
+    override fun getChapterFile(chapterId: String): File {
+        val file = File(chapterFolder.toFile(), "$chapterId.json")
+        if (!file.exists()) throw FileNotFoundException("$chapterId.json が見つかりませんでした")
+        return file
     }
 
     override fun getClearedChapter(userId: String): HashSet<ClearedChapter> {
