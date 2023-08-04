@@ -15,10 +15,6 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
         TODO("Not yet implemented")
     }
 
-    override fun getNextChapter(user: GameUser): ChapterData {
-        TODO("Not yet implemented")
-    }
-
     override fun getCurrentChapter(user: GameUser): ChapterData {
         for (chapter in chapterList) {
             if (user.isClearedChapter(chapter.chapterId)) continue
