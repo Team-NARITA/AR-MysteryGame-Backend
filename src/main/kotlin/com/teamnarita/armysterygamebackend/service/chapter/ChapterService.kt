@@ -59,7 +59,7 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
     }
 
     private fun authorizeAccess(user: GameUser, chapterId: String): Boolean {
-        if (getCurrentChapter(user).chapterId == chapterId) return true
+        if (user.isClearedChapter(chapterId)) return true
         return getCurrentChapter(user).chapterId == chapterId
     }
 
