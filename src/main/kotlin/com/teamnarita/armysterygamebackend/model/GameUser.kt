@@ -26,6 +26,10 @@ class GameUser private constructor(
         usedCoupon.add(coupon)
     }
 
+    fun isClearedChapter(chapterId: String): Boolean {
+        return clearedChapter.any { it.chapterId == chapterId }
+    }
+
     class GameUserBuilder(
         private val userId: String,
         private val userName: String,
