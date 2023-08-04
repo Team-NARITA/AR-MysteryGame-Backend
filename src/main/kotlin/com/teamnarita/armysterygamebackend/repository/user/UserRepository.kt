@@ -20,8 +20,8 @@ class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
     }
 
     override fun save(gameUser: GameUser): Boolean {
-        val sql = "REPLACE INTO game_user (user_id, user_name, create_at, role_id) VALUES ( ?, ?, ?, ?)"
-
+        val sql = "INSERT INTO game_user (user_id, user_name, create_at, role_id) VALUES ( ?, ?, ?, ?)" +
+                "ON DUPLICATE KEY UPDATE user_name = VALUES(user_name), role_id = VALUES(role_id)"
         jdbcTemplate.update(sql, gameUser.userId, gameUser.userName, gameUser.createAt, gameUser.role.roleId)
         return true
     }
