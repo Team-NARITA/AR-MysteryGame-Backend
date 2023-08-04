@@ -1,0 +1,23 @@
+[
+  {
+    "chapterId": "prologue",
+    "chapterName": "プロローグ",
+    "chapterDescription": "プロローグ",
+    "belongMysteries": ["tutorial-01"],
+    "nextChapterId": "chapter-01"
+  },
+  {
+    "chapterId": "chapter-01",
+    "chapterName": "チャプター1",
+    "chapterDescription": "",
+    "belongMysteries": ["mystery-01", "mystery-02"],
+    "nextChapterId": "chapter-02"
+  },
+  {
+    "chapterId": "chapter-02",
+    "chapterName": "チャプター2",
+    "chapterDescription": "",
+    "belongMysteries": ["mystery-03", "mystery-04"],
+    "nextChapterId": ""
+  }
+]
