@@ -16,4 +16,6 @@ interface IGameUserService {
     fun getUser(userId: String): GameUser
 
     fun saveUser(user: GameUser)
+
+    fun clearCache()
 }

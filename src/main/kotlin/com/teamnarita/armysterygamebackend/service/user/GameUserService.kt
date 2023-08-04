@@ -70,6 +70,11 @@ class GameUserService @Autowired constructor(
         return user
     }
 
+    override fun clearCache() {
+        cachedUser.clear()
+        Logger.info("Clear Cache")
+    }
+
     private fun cacheUser(user: GameUser) {
         cachedUser[user.userId] = user
         Logger.info("Add ${user.userName} to Cache")
