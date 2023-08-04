@@ -7,5 +7,5 @@ import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
 interface IChapterService {
     fun clearChapter(user: GameUser, chapterId: String): ClearedChapter
     fun getCurrentChapter(user: GameUser): ChapterData
-    fun getChapterById(chapterId: String): ChapterData?
+    fun getChapterById(chapterId: String): ChapterData
 }

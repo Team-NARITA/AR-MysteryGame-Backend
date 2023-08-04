@@ -23,8 +23,8 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
         return chapterList.last()
     }
 
-    override fun getChapterById(chapterId: String): ChapterData? {
-        return chapterList.firstOrNull { it.chapterId == chapterId }
+    override fun getChapterById(chapterId: String): ChapterData {
+        return chapterList.firstOrNull { it.chapterId == chapterId } ?: throw ChapterNotFoundException("ChapterId: $chapterId が見つかりません")
     }
 
     private fun getFirstChapter(): ChapterData {
