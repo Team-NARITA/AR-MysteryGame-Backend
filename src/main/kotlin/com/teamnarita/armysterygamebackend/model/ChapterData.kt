@@ -5,6 +5,5 @@ data class ChapterData(
     val chapterName: String,
     val chapterDescription: String,
     val belongMysteries: List<String>,
-    val chapterFileURL: String,
     val nextChapterId: String
 )
