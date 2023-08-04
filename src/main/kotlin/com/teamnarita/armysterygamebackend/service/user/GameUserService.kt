@@ -76,7 +76,7 @@ class GameUserService @Autowired constructor(
     }
 
     private fun cacheUser(user: GameUser) {
-        cachedUser[user.userId] = user
+        //cachedUser[user.userId] = user
         Logger.info("Add ${user.userName} to Cache")
     }
 
