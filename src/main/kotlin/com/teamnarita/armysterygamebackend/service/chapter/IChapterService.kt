@@ -8,5 +8,5 @@ interface IChapterService {
     fun clearChapter(user: GameUser, chapterId: String): ClearedChapter
     fun getNextChapter(user: GameUser): ChapterData
     fun getCurrentChapter(user: GameUser): ChapterData
-    fun getChapterById(chapterId: String): ChapterData
+    fun getChapterById(chapterId: String): ChapterData?
 }
