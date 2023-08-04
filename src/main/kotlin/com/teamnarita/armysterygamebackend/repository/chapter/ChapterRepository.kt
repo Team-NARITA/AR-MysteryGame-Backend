@@ -1,13 +1,29 @@
 package com.teamnarita.armysterygamebackend.repository.chapter
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import com.teamnarita.armysterygamebackend.model.ChapterData
 import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.stereotype.Repository
+import java.io.File
+import java.nio.file.Paths
 import java.sql.ResultSet
 
 @Repository
 class ChapterRepository(private val jdbcTemplate: JdbcTemplate): IChapterRepository {
+    companion object {
+        private val chapterFolder = Paths.get("./chapter/")
+        private val chapterMaster = File(chapterFolder.toFile(), "chapterMaster.json")
+        private val jsonMapper = ObjectMapper().registerKotlinModule()
+    }
+
+    override fun loadChapterMaster(): LinkedHashSet<ChapterData> {
+        return jsonMapper.readValue(chapterMaster)
+    }
+
     override fun getClearedChapter(userId: String): HashSet<ClearedChapter> {
         val clearedChapter = jdbcTemplate.query("SELECT * FROM cleared_chapter WHERE user_id='$userId'", ClearedChapterRowMapper())
         return clearedChapter.toHashSet()
