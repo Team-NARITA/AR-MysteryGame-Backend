@@ -1,5 +1,8 @@
 package com.teamnarita.armysterygamebackend.api
 
+import com.teamnarita.armysterygamebackend.exception.UnauthorizedAccessException
+import com.teamnarita.armysterygamebackend.exception.chapter.ChapterNotFoundException
+import com.teamnarita.armysterygamebackend.exception.chapter.ClearJudgmentException
 import com.teamnarita.armysterygamebackend.model.ChapterData
 import com.teamnarita.armysterygamebackend.model.UserDetailsImpl
 import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
@@ -7,6 +10,7 @@ import com.teamnarita.armysterygamebackend.service.chapter.IChapterService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.web.ErrorResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -38,5 +42,20 @@ class ChapterController(private val chapterService: IChapterService) {
         val gameUser = principal.gameUser
         val clearedChapter = chapterService.clearChapter(gameUser, chapterId)
         return ResponseEntity(clearedChapter, HttpStatus.OK)
+    }
+
+    @ExceptionHandler(UnauthorizedAccessException::class)
+    fun handleException(ex: UnauthorizedAccessException): ErrorResponse {
+        return ErrorResponse.create(ex, HttpStatus.FORBIDDEN, "このチャプターにはアクセスできません")
+    }
+
+    @ExceptionHandler(ChapterNotFoundException::class)
+    fun handleException(ex: ChapterNotFoundException): ErrorResponse {
+        return ErrorResponse.create(ex, HttpStatus.NOT_FOUND, "チャプターが見つかりませんでした")
+    }
+
+    @ExceptionHandler(ClearJudgmentException::class)
+    fun handleException(ex: ClearJudgmentException): ErrorResponse {
+        return ErrorResponse.create(ex, HttpStatus.BAD_REQUEST, "")
     }
 }
