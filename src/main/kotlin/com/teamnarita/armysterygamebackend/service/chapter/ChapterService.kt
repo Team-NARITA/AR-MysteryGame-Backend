@@ -14,7 +14,6 @@ import kotlin.jvm.Throws
 
 @Service
 class ChapterService(private val chapterRepository: IChapterRepository): IChapterService {
-    private val chapterList: LinkedHashSet<ChapterData> = chapterRepository.loadChapterMaster()
 
     @Throws(ClearJudgmentException::class, ChapterNotFoundException::class)
     override fun clearChapter(user: GameUser, chapterId: String): ClearedChapter {
@@ -29,6 +28,7 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
     }
 
     override fun getCurrentChapter(user: GameUser): ChapterData {
+        val chapterList = chapterRepository.getChapterList()
         for (chapter in chapterList) {
             if (user.isClearedChapter(chapter.chapterId)) continue
             return chapter
@@ -38,7 +38,7 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
 
     @Throws(ChapterNotFoundException::class)
     override fun getChapterById(chapterId: String): ChapterData {
-        return chapterList.firstOrNull { it.chapterId == chapterId }
+        return chapterRepository.getChapterList().firstOrNull { it.chapterId == chapterId }
             ?: throw ChapterNotFoundException("ChapterId: $chapterId が見つかりません")
     }
 
@@ -64,6 +64,6 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
     }
 
     private fun getFirstChapter(): ChapterData {
-        return chapterList.first()
+        return chapterRepository.getChapterList().first()
     }
 }

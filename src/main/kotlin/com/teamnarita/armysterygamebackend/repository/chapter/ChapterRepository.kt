@@ -21,8 +21,15 @@ class ChapterRepository(private val jdbcTemplate: JdbcTemplate): IChapterReposit
         private val jsonMapper = ObjectMapper().registerKotlinModule()
     }
 
-    override fun loadChapterMaster(): LinkedHashSet<ChapterData> {
-        return jsonMapper.readValue(chapterMaster)
+    val chapterList: LinkedHashSet<ChapterData> = LinkedHashSet()
+
+    override fun loadChapterMaster() {
+        chapterList.clear()
+        chapterList.addAll(jsonMapper.readValue(chapterMaster))
+    }
+
+    override fun getChapterList(): LinkedHashSet<ChapterData> {
+        return chapterList
     }
 
     override fun getChapterFile(chapterId: String): File {
