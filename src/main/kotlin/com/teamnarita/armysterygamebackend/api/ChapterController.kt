@@ -51,7 +51,7 @@ class ChapterController(private val chapterService: IChapterService) {
 
     @ExceptionHandler(ChapterNotFoundException::class)
     fun handleException(ex: ChapterNotFoundException): ErrorResponse {
-        return ErrorResponse.create(ex, HttpStatus.NOT_FOUND, "チャプターが見つかりませんでした")
+        return ErrorResponse.create(ex, HttpStatus.NOT_FOUND, "chapterId:${ex.chapterId} が見つかりませんでした")
     }
 
     @ExceptionHandler(ClearJudgmentException::class)

@@ -39,7 +39,7 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
     @Throws(ChapterNotFoundException::class)
     override fun getChapterById(chapterId: String): ChapterData {
         return chapterRepository.getChapterList().firstOrNull { it.chapterId == chapterId }
-            ?: throw ChapterNotFoundException("ChapterId: $chapterId が見つかりません")
+            ?: throw ChapterNotFoundException(chapterId ,"ChapterId: $chapterId が見つかりません")
     }
 
     @Throws(UnauthorizedAccessException::class)

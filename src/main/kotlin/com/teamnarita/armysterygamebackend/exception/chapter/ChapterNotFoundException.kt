@@ -1,4 +1,4 @@
 package com.teamnarita.armysterygamebackend.exception.chapter
 
-class ChapterNotFoundException(msg: String): Exception(msg) {
+class ChapterNotFoundException(val chapterId: String, msg: String): Exception(msg) {
 }
