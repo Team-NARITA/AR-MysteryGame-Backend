@@ -73,6 +73,15 @@ class GameUserService @Autowired constructor(
         return user
     }
 
+    override fun createUnregisterUser(userId: String): GameUser {
+        val userBuilder = GameUserBuilder(userId, "unregisterUser", timeUtil.getCurrentTimeStamp(), GameUser.UserRole.UNREGISTER_USER)
+        userBuilder.currentChapter = chapterRepository.getChapterList().first()
+        userBuilder.solvedMystery = HashSet()
+        userBuilder.clearedChapter = HashSet()
+        userBuilder.usedCoupon = HashSet()
+        return userBuilder.build()
+    }
+
     override fun clearCache() {
         //cachedUser.clear()
         Logger.info("Clear Cache")

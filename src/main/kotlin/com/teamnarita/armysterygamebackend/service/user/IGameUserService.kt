@@ -15,6 +15,8 @@ interface IGameUserService {
     @Throws(UserNotFoundException::class)
     fun getUser(userId: String): GameUser
 
+    fun createUnregisterUser(userId: String): GameUser
+
     fun saveUser(user: GameUser)
 
     fun clearCache()
