@@ -63,8 +63,4 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
         if (user.isClearedChapter(chapterId)) return true
         return getCurrentChapter(user).chapterId == chapterId
     }
-
-    private fun getFirstChapter(): ChapterData {
-        return chapterRepository.getChapterList().first()
-    }
 }
