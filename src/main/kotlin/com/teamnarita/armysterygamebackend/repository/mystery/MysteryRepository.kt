@@ -5,6 +5,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.teamnarita.armysterygamebackend.model.MysteryData
 import com.teamnarita.armysterygamebackend.model.dto.SolvedMystery
+import jakarta.annotation.PostConstruct
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.stereotype.Repository
@@ -22,6 +23,7 @@ class MysteryRepository(val jdbcTemplate: JdbcTemplate): IMysteryRepository {
 
     private val mysteryDataMap: HashMap<String, MysteryData> = HashMap()
 
+    @PostConstruct
     override fun loadMysteryMaster() {
         mysteryDataMap.clear()
         val mysteries = jsonMapper.readValue<List<MysteryData>>(mysteryMaster)

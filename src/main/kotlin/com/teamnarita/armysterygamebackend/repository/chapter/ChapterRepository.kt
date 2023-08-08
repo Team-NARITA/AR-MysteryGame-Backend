@@ -5,6 +5,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.teamnarita.armysterygamebackend.model.ChapterData
 import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
+import jakarta.annotation.PostConstruct
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.stereotype.Repository
@@ -23,6 +24,7 @@ class ChapterRepository(private val jdbcTemplate: JdbcTemplate): IChapterReposit
 
     private val chapterList: LinkedHashSet<ChapterData> = LinkedHashSet()
 
+    @PostConstruct
     override fun loadChapterMaster() {
         chapterList.clear()
         chapterList.addAll(jsonMapper.readValue(chapterMaster))
