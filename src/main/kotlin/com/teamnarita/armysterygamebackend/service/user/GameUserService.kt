@@ -34,6 +34,7 @@ class GameUserService @Autowired constructor(
         }
 
         val userBuilder = GameUserBuilder(userId, userName, timeUtil.getCurrentTimeStamp(), GameUser.UserRole.USER)
+        userBuilder.currentChapter = chapterRepository.getChapterList().first()
         userBuilder.solvedMystery = HashSet()
         userBuilder.clearedChapter = HashSet()
         userBuilder.usedCoupon = HashSet()
@@ -61,6 +62,8 @@ class GameUserService @Autowired constructor(
         val solvedMystery = mysteryRepository.getSolvedMystery(userId)
         val clearedChapter = chapterRepository.getClearedChapter(userId)
         val usedCoupon = couponRepository.getUsedCoupon(userId)
+        val chapter = chapterRepository.getChapterList().firstOrNull { it.chapterId == userDto.currentChapterId}
+        userBuilder.currentChapter = chapter
         userBuilder.solvedMystery = solvedMystery
         userBuilder.clearedChapter = clearedChapter
         userBuilder.usedCoupon = usedCoupon
@@ -71,7 +74,7 @@ class GameUserService @Autowired constructor(
     }
 
     override fun clearCache() {
-        cachedUser.clear()
+        //cachedUser.clear()
         Logger.info("Clear Cache")
     }
 

@@ -7,9 +7,10 @@ import org.springframework.security.core.GrantedAuthority
 
 class GameUser private constructor(
     val userId: String,
-    val userName: String,
+    var userName: String,
     val createAt: Long,
-    val role: UserRole,
+    var role: UserRole,
+    var currentChapter: ChapterData,
     val solvedMystery: HashSet<SolvedMystery>,
     val clearedChapter: HashSet<ClearedChapter>,
     val usedCoupon: HashSet<UsedCoupon>
@@ -40,12 +41,13 @@ class GameUser private constructor(
         private val createAt: Long,
         private val role: UserRole
     ) {
+        var currentChapter: ChapterData? = null
         var solvedMystery: HashSet<SolvedMystery> = hashSetOf()
         var clearedChapter: HashSet<ClearedChapter> = hashSetOf()
         var usedCoupon: HashSet<UsedCoupon> = hashSetOf()
 
         fun build(): GameUser {
-            return GameUser(userId, userName, createAt, role, solvedMystery, clearedChapter, usedCoupon)
+            return GameUser(userId, userName, createAt, role, checkNotNull(currentChapter), solvedMystery, clearedChapter, usedCoupon)
         }
     }
 

@@ -24,6 +24,7 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
         val clearedChapter = ClearedChapter(user.userId, chapterId, TimeUtil.getCurrentTimeStamp())
         chapterRepository.addClearedChapter(clearedChapter)
         user.addClearedChapter(clearedChapter)
+        user.currentChapter = getCurrentChapter(user)
         return clearedChapter
     }
 

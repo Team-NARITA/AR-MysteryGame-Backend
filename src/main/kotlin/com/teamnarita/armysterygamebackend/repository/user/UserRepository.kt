@@ -20,9 +20,9 @@ class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
     }
 
     override fun save(gameUser: GameUser): Boolean {
-        val sql = "INSERT INTO game_user (user_id, user_name, create_at, role_id) VALUES ( ?, ?, ?, ?)" +
-                "ON DUPLICATE KEY UPDATE user_name = VALUES(user_name), role_id = VALUES(role_id)"
-        jdbcTemplate.update(sql, gameUser.userId, gameUser.userName, gameUser.createAt, gameUser.role.roleId)
+        val sql = "INSERT INTO game_user (user_id, user_name, create_at, role_id, current_chapter) VALUES ( ?, ?, ?, ?, ?)" +
+                "ON DUPLICATE KEY UPDATE user_name = VALUES(user_name), role_id = VALUES(role_id), current_chapter = VALUES(current_chapter)"
+        jdbcTemplate.update(sql, gameUser.userId, gameUser.userName, gameUser.createAt, gameUser.role.roleId, gameUser.currentChapter.chapterId)
         return true
     }
 
@@ -36,7 +36,8 @@ class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
             val userName = rs.getString("user_name")
             val createAt = rs.getLong("create_at")
             val roleId = rs.getInt("role_id")
-            return UserDTO(userId, userName, createAt, roleId)
+            val currentChapterId = rs.getString("current_chapter")
+            return UserDTO(userId, userName, createAt, roleId, currentChapterId)
         }
     }
 }
