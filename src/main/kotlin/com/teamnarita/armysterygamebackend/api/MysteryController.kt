@@ -27,8 +27,6 @@ class MysteryController(private val mysteryService: IMysteryService) {
         return ResponseEntity(MysteryResponse(false, null), HttpStatus.OK)
     }
 
-
-
     data class SubmitMystery(val answer: String)
     data class MysteryResponse(val isCollect: Boolean, val content: SolvedMystery?)
 }
