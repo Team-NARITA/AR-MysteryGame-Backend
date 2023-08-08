@@ -41,5 +41,5 @@ class UserController(private val gameUserService: IGameUserService) {
         return ErrorResponse.create(ex, HttpStatus.NOT_FOUND, "userId: ${ex.userId} is Not Found")
     }
 
-    data class RegisterUserBody(var username: String)
+    data class RegisterUserBody(val username: String)
 }
