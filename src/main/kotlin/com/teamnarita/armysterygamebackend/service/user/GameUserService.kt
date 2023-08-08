@@ -83,7 +83,7 @@ class GameUserService @Autowired constructor(
     }
 
     override fun clearCache() {
-        //cachedUser.clear()
+        cachedUser.clear()
         Logger.info("Clear Cache")
     }
 
