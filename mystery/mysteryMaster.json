@@ -1,0 +1,32 @@
+[
+  {
+    "mysteryId": "tutorial-01",
+    "mysteryText": "",
+    "mysteryDescription": "",
+    "answers": [""]
+  },
+  {
+    "mysteryId": "mystery-01",
+    "mysteryText": "",
+    "mysteryDescription": "",
+    "answers": [""]
+  },
+  {
+    "mysteryId": "mystery-02",
+    "mysteryText": "",
+    "mysteryDescription": "",
+    "answers": [""]
+  },
+  {
+    "mysteryId": "mystery-03",
+    "mysteryText": "",
+    "mysteryDescription": "",
+    "answers": [""]
+  },
+  {
+    "mysteryId": "mystery-04",
+    "mysteryText": "",
+    "mysteryDescription": "",
+    "answers": [""]
+  }
+]
