@@ -37,6 +37,12 @@ class ChapterController(private val chapterService: IChapterService) {
         return ResponseEntity(chapterData, HttpStatus.OK)
     }
 
+    @GetMapping("/authorize")
+    fun getAuthorizeChapters(@AuthenticationPrincipal principal: UserDetailsImpl): ResponseEntity<List<ChapterData>> {
+        val chapters = chapterService.getAuthorizedChapterByUser(principal.gameUser)
+        return ResponseEntity(chapters, HttpStatus.OK)
+    }
+
     @PostMapping("/clear/{chapterId}")
     fun clearChapter(@AuthenticationPrincipal principal: UserDetailsImpl, @PathVariable chapterId: String): ResponseEntity<ClearedChapter> {
         val gameUser = principal.gameUser

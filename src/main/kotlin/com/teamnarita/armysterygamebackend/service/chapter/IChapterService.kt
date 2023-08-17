@@ -11,4 +11,5 @@ interface IChapterService {
     fun getChapterById(chapterId: String): ChapterData
     fun getChapterDataByUser(user: GameUser, chapterId: String): ChapterData
     fun getChapterFileByUser(user: GameUser, chapterId: String): File
+    fun getAuthorizedChapterByUser(user: GameUser): List<ChapterData>
 }

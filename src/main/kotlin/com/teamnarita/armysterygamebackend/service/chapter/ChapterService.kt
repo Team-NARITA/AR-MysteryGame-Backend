@@ -59,6 +59,15 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
         throw UnauthorizedAccessException(user.userId, "チャプターにアクセス権限がありません")
     }
 
+    override fun getAuthorizedChapterByUser(user: GameUser): List<ChapterData> {
+        val chapters = mutableListOf<ChapterData>()
+        for (clearedChapter in user.clearedChapter) {
+            chapters.add(getChapterDataByUser(user, clearedChapter.chapterId))
+        }
+        chapters.add(getCurrentChapter(user))
+        return chapters.toList()
+    }
+
     private fun authorizeAccess(user: GameUser, chapterId: String): Boolean {
         if (user.isClearedChapter(chapterId)) return true
         return getCurrentChapter(user).chapterId == chapterId
