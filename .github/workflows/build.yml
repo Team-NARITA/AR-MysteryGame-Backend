@@ -20,7 +20,7 @@ jobs:
       - name: add execute permission for gradlew
         run: chmod +x ./gradlew
       - name: run build gradle wrapper
-        run: ./gradlew build
+        run: ./gradlew bootJar
       - name: upload build artifacts
         uses: actions/upload-artifact@v2
         with:
