@@ -18,14 +18,13 @@ class AuthService(@Autowired private val gameUserService: IGameUserService):
         private val Logger = LoggerFactory.getLogger(AuthService::class.java)
     }
 
-    private val firebaseApp = FirebaseAuth.getInstance()
     override fun loadUserDetails(token: PreAuthenticatedAuthenticationToken): UserDetailsImpl {
         val credential = token.credentials.toString()
 
         if (credential.isEmpty()) throw BadCredentialsException("トークンが空です")
 
         try {
-            val firebaseToken = firebaseApp.verifyIdToken(credential)
+            val firebaseToken = FirebaseAuth.getInstance().verifyIdToken(credential)
             if (gameUserService.userExist(firebaseToken.uid)) {
                 val gameUser = gameUserService.getUser(firebaseToken.uid)
                 return UserDetailsImpl(gameUser)
