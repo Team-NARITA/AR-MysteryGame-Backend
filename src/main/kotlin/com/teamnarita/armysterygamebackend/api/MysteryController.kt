@@ -33,5 +33,5 @@ class MysteryController(private val mysteryService: IMysteryService) {
     }
 
     data class SubmitMystery(val answer: String)
-    data class MysteryResponse(val isCollect: Boolean, val content: SolvedMystery?)
+    data class MysteryResponse(val isCorrect: Boolean, val content: SolvedMystery?)
 }
