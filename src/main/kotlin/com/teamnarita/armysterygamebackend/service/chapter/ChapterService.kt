@@ -18,6 +18,8 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
     @Throws(ClearJudgmentException::class, ChapterNotFoundException::class)
     override fun clearChapter(user: GameUser, chapterId: String): ClearedChapter {
         val chapter = getChapterById(chapterId)
+        if (user.isClearedChapter(chapterId))
+            throw ClearJudgmentException(user.userId, "このチャプターは既にクリア済みです")
         if (!chapter.belongMysteries.all { user.isSolvedMystery(it) })
             throw ClearJudgmentException(user.userId, "必要な謎を解いていません")
 
