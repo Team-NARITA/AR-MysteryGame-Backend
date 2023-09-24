@@ -1,7 +1,6 @@
 package com.teamnarita.armysterygamebackend.service.mystery
 
 import com.teamnarita.armysterygamebackend.exception.UnauthorizedAccessException
-import com.teamnarita.armysterygamebackend.exception.mystery.MysteryAlreadySolvedException
 import com.teamnarita.armysterygamebackend.exception.mystery.MysteryNotFoundException
 import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.dto.SolvedMystery
@@ -14,10 +13,9 @@ class MysteryService(private val mysteryRepository: IMysteryRepository): IMyster
     private val timeUtil = TimeUtil
 
     override fun solveMystery(user: GameUser, mysteryId: String): SolvedMystery {
-        if (user.isSolvedMystery(mysteryId))
-            throw MysteryAlreadySolvedException(user.userId ,"この謎は既に解かれています")
         if (!user.currentChapter.belongMysteries.contains(mysteryId))
             throw UnauthorizedAccessException(user.userId, "現在のチャプターに存在しない謎です")
+        if (user.isSolvedMystery(mysteryId)) return user.solvedMystery.first { it.mysteryId == mysteryId }
         val solvedMystery = SolvedMystery(user.userId, mysteryId, timeUtil.getCurrentTimeStamp())
         mysteryRepository.addSolvedMystery(solvedMystery)
         user.addSolvedMystery(solvedMystery)
