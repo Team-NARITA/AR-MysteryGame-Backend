@@ -9,7 +9,7 @@ import java.sql.ResultSet
 @Repository
 class CouponRepository(private val jdbcTemplate: JdbcTemplate): ICouponRepository {
     override fun getUsedCoupon(userId: String): HashSet<UsedCoupon> {
-        val usedCoupon = jdbcTemplate.query("SELECT * FROM used_coupon WHERE user_id='$userId'", UsedCouponRowMapper())
+        val usedCoupon = jdbcTemplate.query("SELECT * FROM used_coupon WHERE user_id='?'", UsedCouponRowMapper(), userId)
         return usedCoupon.toHashSet()
     }
 
