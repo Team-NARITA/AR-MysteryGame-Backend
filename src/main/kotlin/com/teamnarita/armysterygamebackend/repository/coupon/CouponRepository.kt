@@ -1,13 +1,40 @@
 package com.teamnarita.armysterygamebackend.repository.coupon
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import com.teamnarita.armysterygamebackend.model.CouponData
 import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
+import jakarta.annotation.PostConstruct
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.stereotype.Repository
+import java.io.File
+import java.nio.file.Paths
 import java.sql.ResultSet
 
 @Repository
 class CouponRepository(private val jdbcTemplate: JdbcTemplate): ICouponRepository {
+    companion object {
+        private val couponFolder = Paths.get("./coupon/")
+        private val couponMaster = File(couponFolder.toFile(), "couponMaster.json")
+        private val jsonMapper = ObjectMapper().registerKotlinModule()
+    }
+
+    private val couponList: HashMap<String, CouponData> = HashMap()
+
+    @PostConstruct
+    override fun loadCouponMaster() {
+        couponList.clear()
+        for (couponData in jsonMapper.readValue<List<CouponData>>(couponMaster)) {
+            couponList[couponData.couponId] = couponData
+        }
+    }
+
+    override fun getCouponList(): List<CouponData> {
+        return couponList.values.toList()
+    }
+
     override fun getUsedCoupon(userId: String): HashSet<UsedCoupon> {
         val usedCoupon = jdbcTemplate.query("SELECT * FROM used_coupon WHERE user_id='?'", UsedCouponRowMapper(), userId)
         return usedCoupon.toHashSet()
