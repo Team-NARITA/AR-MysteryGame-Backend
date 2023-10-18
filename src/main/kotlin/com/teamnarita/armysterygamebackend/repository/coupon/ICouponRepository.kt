@@ -7,4 +7,5 @@ interface ICouponRepository {
     fun loadCouponMaster()
     fun getCouponList(): List<CouponData>
     fun getUsedCoupon(userId: String): HashSet<UsedCoupon>
+    fun addUsedCoupon(usedCoupon: UsedCoupon)
 }

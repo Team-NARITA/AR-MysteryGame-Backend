@@ -40,6 +40,11 @@ class CouponRepository(private val jdbcTemplate: JdbcTemplate): ICouponRepositor
         return usedCoupon.toHashSet()
     }
 
+    override fun addUsedCoupon(usedCoupon: UsedCoupon) {
+        val sql = "INSERT INTO used_coupon(user_id, coupon_id, used_at) VALUES (?, ?, ?)"
+        jdbcTemplate.update(sql, usedCoupon.userId, usedCoupon.couponId, usedCoupon.usedAt)
+    }
+
     private class UsedCouponRowMapper: RowMapper<UsedCoupon> {
         override fun mapRow(rs: ResultSet, rowNum: Int): UsedCoupon {
             val userId = rs.getString("user_id")
