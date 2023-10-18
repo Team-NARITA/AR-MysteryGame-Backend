@@ -12,7 +12,7 @@ import java.sql.ResultSet
 class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
     override fun find(userId: String): UserDTO? {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM game_user WHERE user_id='?'", UserRowMapper(), userId)
+            return jdbcTemplate.queryForObject("SELECT * FROM game_user WHERE user_id=?", UserRowMapper(), userId)
         } catch (e: IncorrectResultSizeDataAccessException) {
             e.printStackTrace()
             return null
@@ -27,7 +27,7 @@ class UserRepository(val jdbcTemplate: JdbcTemplate): IUserRepository {
     }
 
     override fun exists(userId: String): Boolean {
-        return jdbcTemplate.query("SELECT * FROM game_user WHERE user_id='?'", UserRowMapper(), userId).size >= 1
+        return jdbcTemplate.query("SELECT * FROM game_user WHERE user_id=?", UserRowMapper(), userId).size >= 1
     }
 
     private class UserRowMapper: RowMapper<UserDTO> {

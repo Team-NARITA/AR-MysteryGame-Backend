@@ -36,7 +36,7 @@ class CouponRepository(private val jdbcTemplate: JdbcTemplate): ICouponRepositor
     }
 
     override fun getUsedCoupon(userId: String): HashSet<UsedCoupon> {
-        val usedCoupon = jdbcTemplate.query("SELECT * FROM used_coupon WHERE user_id='?'", UsedCouponRowMapper(), userId)
+        val usedCoupon = jdbcTemplate.query("SELECT * FROM used_coupon WHERE user_id=?", UsedCouponRowMapper(), userId)
         return usedCoupon.toHashSet()
     }
 

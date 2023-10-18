@@ -37,7 +37,7 @@ class MysteryRepository(val jdbcTemplate: JdbcTemplate): IMysteryRepository {
     }
 
     override fun getSolvedMystery(userId: String): HashSet<SolvedMystery> {
-        val solvedMysteries = jdbcTemplate.query("SELECT * FROM solved_mystery WHERE user_id='?'", SolvedMysteryRowMapper(), userId)
+        val solvedMysteries = jdbcTemplate.query("SELECT * FROM solved_mystery WHERE user_id=?", SolvedMysteryRowMapper(), userId)
         return solvedMysteries.toHashSet()
     }
 
