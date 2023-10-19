@@ -3,6 +3,7 @@ package com.teamnarita.armysterygamebackend.api
 import com.teamnarita.armysterygamebackend.exception.coupon.CouponAlreadyUsedException
 import com.teamnarita.armysterygamebackend.model.UserCouponData
 import com.teamnarita.armysterygamebackend.model.UserDetailsImpl
+import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
 import com.teamnarita.armysterygamebackend.service.coupon.ICouponService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -30,9 +31,10 @@ class CouponController(private val couponService: ICouponService) {
     }
 
     @GetMapping("/use/{couponId}")
-    fun useCoupon(@AuthenticationPrincipal principal: UserDetailsImpl, @PathVariable couponId: String) {
+    fun useCoupon(@AuthenticationPrincipal principal: UserDetailsImpl, @PathVariable couponId: String): ResponseEntity<UsedCoupon> {
         Logger.info("Request:GET /coupon/${couponId} User: ${principal.gameUser.userName}[${principal.gameUser.userId}]")
-        TODO("")
+        val usedCoupon = couponService.useCoupon(principal.gameUser, couponId)
+        return ResponseEntity(usedCoupon, HttpStatus.OK)
     }
 
     @ExceptionHandler(CouponAlreadyUsedException::class)

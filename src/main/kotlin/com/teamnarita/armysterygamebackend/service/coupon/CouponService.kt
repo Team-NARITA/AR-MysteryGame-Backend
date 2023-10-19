@@ -15,24 +15,25 @@ class CouponService(private val couponRepository: ICouponRepository): ICouponSer
 
     override fun getUserCouponList(user: GameUser): List<UserCouponData> {
         val couponList = couponRepository.getCouponList()
-        val usedList = couponRepository.getUsedCoupon(user.userId)
         val result = mutableListOf<UserCouponData>()
         for (coupon in couponList) {
-            val isUsed = usedList.any { it.couponId == coupon.couponId }
-            result.add(UserCouponData(coupon, isUsed))
+            val isAvailable = isAvailable(user, coupon)
+            result.add(UserCouponData(coupon, isAvailable))
         }
         return result.toList()
     }
 
     override fun useCoupon(user: GameUser, couponId: String): UsedCoupon {
-        val usedCouponList = couponRepository.getUsedCoupon(user.userId)
-        if (usedCouponList.any {it.couponId == couponId}) throw CouponAlreadyUsedException(user.userId, "既に使用されています")
+        val couponData = couponRepository.getCouponById(couponId)
+        if (isAvailable(user, couponData)) throw CouponAlreadyUsedException(user.userId, "既に使用されています")
         val usedCoupon = UsedCoupon(user.userId, couponId, timeUtil.getCurrentTimeStamp())
         couponRepository.addUsedCoupon(usedCoupon)
+        user.addUsedCoupon(usedCoupon)
         return usedCoupon
     }
 
     private fun isAvailable(user: GameUser, couponData: CouponData): Boolean {
-        TODO()
+        if (user.usedCoupon.any { it.couponId == couponData.couponId}) return false
+        return user.isClearedChapter(couponData.couponId)
     }
 }
