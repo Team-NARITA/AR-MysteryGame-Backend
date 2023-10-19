@@ -1,6 +1,7 @@
 package com.teamnarita.armysterygamebackend.api
 
-import com.teamnarita.armysterygamebackend.exception.coupon.CouponAlreadyUsedException
+import com.teamnarita.armysterygamebackend.exception.coupon.CouponNotAvailableException
+import com.teamnarita.armysterygamebackend.exception.coupon.CouponNotFoundException
 import com.teamnarita.armysterygamebackend.model.UserCouponData
 import com.teamnarita.armysterygamebackend.model.UserDetailsImpl
 import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
@@ -37,9 +38,13 @@ class CouponController(private val couponService: ICouponService) {
         return ResponseEntity(usedCoupon, HttpStatus.OK)
     }
 
-    @ExceptionHandler(CouponAlreadyUsedException::class)
-    fun handleException(ex: CouponAlreadyUsedException): ErrorResponse {
+    @ExceptionHandler(CouponNotAvailableException::class)
+    fun handleException(ex: CouponNotAvailableException): ErrorResponse {
         return ErrorResponse.create(ex, HttpStatus.FORBIDDEN, "")
     }
 
+    @ExceptionHandler(CouponNotFoundException::class)
+    fun handleException(ex: CouponNotFoundException): ErrorResponse  {
+        return ErrorResponse.create(ex, HttpStatus.NOT_FOUND, "")
+    }
 }

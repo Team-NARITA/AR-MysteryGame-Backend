@@ -1,6 +1,6 @@
 package com.teamnarita.armysterygamebackend.service.coupon
 
-import com.teamnarita.armysterygamebackend.exception.coupon.CouponAlreadyUsedException
+import com.teamnarita.armysterygamebackend.exception.coupon.CouponNotAvailableException
 import com.teamnarita.armysterygamebackend.model.CouponData
 import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.UserCouponData
@@ -25,7 +25,7 @@ class CouponService(private val couponRepository: ICouponRepository): ICouponSer
 
     override fun useCoupon(user: GameUser, couponId: String): UsedCoupon {
         val couponData = couponRepository.getCouponById(couponId)
-        if (isAvailable(user, couponData)) throw CouponAlreadyUsedException(user.userId, "既に使用されています")
+        if (isAvailable(user, couponData)) throw CouponNotAvailableException(user.userId, "このクーポンは使用不可能です")
         val usedCoupon = UsedCoupon(user.userId, couponId, timeUtil.getCurrentTimeStamp())
         couponRepository.addUsedCoupon(usedCoupon)
         user.addUsedCoupon(usedCoupon)
