@@ -6,6 +6,7 @@ import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
 interface ICouponRepository {
     fun loadCouponMaster()
     fun getCouponList(): List<CouponData>
+    fun getCouponById(couponId: String): CouponData
     fun getUsedCoupon(userId: String): HashSet<UsedCoupon>
     fun addUsedCoupon(usedCoupon: UsedCoupon)
 }

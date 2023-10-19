@@ -3,6 +3,7 @@ package com.teamnarita.armysterygamebackend.repository.coupon
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import com.teamnarita.armysterygamebackend.exception.coupon.CouponNotFoundException
 import com.teamnarita.armysterygamebackend.model.CouponData
 import com.teamnarita.armysterygamebackend.model.dto.UsedCoupon
 import jakarta.annotation.PostConstruct
@@ -33,6 +34,11 @@ class CouponRepository(private val jdbcTemplate: JdbcTemplate): ICouponRepositor
 
     override fun getCouponList(): List<CouponData> {
         return couponList.values.toList()
+    }
+
+    override fun getCouponById(couponId: String): CouponData {
+        if (!couponList.containsKey(couponId)) throw CouponNotFoundException(couponId, "couponId: $couponId が見つかりません")
+        return couponList[couponId]!!
     }
 
     override fun getUsedCoupon(userId: String): HashSet<UsedCoupon> {
