@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service
 class CouponService(private val couponRepository: ICouponRepository): ICouponService {
     private val timeUtil = TimeUtil
 
+    override fun getCouponById(user: GameUser, couponId: String): UserCouponData {
+        val couponData = couponRepository.getCouponById(couponId)
+        return UserCouponData(couponData, isAvailable(user, couponData))
+    }
+
     override fun getUserCouponList(user: GameUser): List<UserCouponData> {
         val couponList = couponRepository.getCouponList()
         val result = mutableListOf<UserCouponData>()

@@ -24,6 +24,13 @@ class CouponController(private val couponService: ICouponService) {
         private val Logger = LoggerFactory.getLogger(CouponController::class.java)
     }
 
+    @GetMapping("/{couponId}")
+    fun getCouponById(@AuthenticationPrincipal principal: UserDetailsImpl, @PathVariable couponId: String): ResponseEntity<UserCouponData> {
+        Logger.info("Request:GET /coupon/$couponId User: ${principal.gameUser.userName}[${principal.gameUser.userId}]")
+        val coupon = couponService.getCouponById(principal.gameUser, couponId)
+        return ResponseEntity(coupon, HttpStatus.OK)
+    }
+
     @GetMapping("/")
     fun getCouponList(@AuthenticationPrincipal principal: UserDetailsImpl): ResponseEntity<List<UserCouponData>> {
         Logger.info("Request:GET /coupon/ User: ${principal.gameUser.userName}[${principal.gameUser.userId}]")
