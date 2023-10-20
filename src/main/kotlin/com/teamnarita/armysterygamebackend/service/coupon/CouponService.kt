@@ -34,6 +34,6 @@ class CouponService(private val couponRepository: ICouponRepository): ICouponSer
 
     private fun isAvailable(user: GameUser, couponData: CouponData): Boolean {
         if (user.usedCoupon.any { it.couponId == couponData.couponId}) return false
-        return user.isClearedChapter(couponData.couponId)
+        return user.isClearedChapter(couponData.whenChapter)
     }
 }
