@@ -8,5 +8,6 @@ data class CouponData(
     val discountItem: String,
     val originalPrice: Int,
     val discountedPrice: Int,
-    val whenChapter: String
+    val whenChapter: String,
+    val thumbnail: String
 )
