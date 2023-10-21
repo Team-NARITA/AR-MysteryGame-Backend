@@ -30,7 +30,7 @@ class CouponService(private val couponRepository: ICouponRepository): ICouponSer
 
     override fun useCoupon(user: GameUser, couponId: String): UsedCoupon {
         val couponData = couponRepository.getCouponById(couponId)
-        if (isAvailable(user, couponData)) throw CouponNotAvailableException(user.userId, "このクーポンは使用不可能です")
+        if (!isAvailable(user, couponData)) throw CouponNotAvailableException(user.userId, "このクーポンは使用不可能です")
         val usedCoupon = UsedCoupon(user.userId, couponId, timeUtil.getCurrentTimeStamp())
         couponRepository.addUsedCoupon(usedCoupon)
         user.addUsedCoupon(usedCoupon)
