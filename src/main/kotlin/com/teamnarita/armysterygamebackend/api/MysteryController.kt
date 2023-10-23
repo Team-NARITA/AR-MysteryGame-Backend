@@ -26,7 +26,9 @@ class MysteryController(private val mysteryService: IMysteryService) {
     ): ResponseEntity<MysteryResponse> {
         Logger.info("Request:POST /mystery/submit/${mysteryId} User: ${principal.gameUser.userName}[${principal.gameUser.userId}]")
         if (mysteryService.checkAnswer(mysteryId,requestBody.answer)) {
-            val solvedMystery = mysteryService.solveMystery(principal.gameUser, mysteryId)
+            val gameUser = principal.gameUser
+            val solvedMystery = gameUser.solvedMystery.firstOrNull { it.mysteryId == mysteryId} ?:
+                mysteryService.solveMystery(gameUser, mysteryId)
             return ResponseEntity(MysteryResponse(true, solvedMystery), HttpStatus.OK)
         }
         return ResponseEntity(MysteryResponse(false, null), HttpStatus.OK)
