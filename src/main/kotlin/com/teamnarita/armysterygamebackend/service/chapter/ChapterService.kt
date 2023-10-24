@@ -68,6 +68,7 @@ class ChapterService(private val chapterRepository: IChapterRepository, private 
         for (clearedChapter in user.clearedChapter) {
             chapters.add(getChapterDataByUser(user, clearedChapter.chapterId))
         }
+        chapters.reverse()
         chapters.add(getCurrentChapter(user))
         return chapters.toList()
     }
