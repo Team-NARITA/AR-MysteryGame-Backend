@@ -7,13 +7,14 @@ import com.teamnarita.armysterygamebackend.model.ChapterData
 import com.teamnarita.armysterygamebackend.model.GameUser
 import com.teamnarita.armysterygamebackend.model.dto.ClearedChapter
 import com.teamnarita.armysterygamebackend.repository.chapter.IChapterRepository
+import com.teamnarita.armysterygamebackend.repository.user.IUserRepository
 import com.teamnarita.armysterygamebackend.utility.TimeUtil
 import org.springframework.stereotype.Service
 import java.io.File
 import kotlin.jvm.Throws
 
 @Service
-class ChapterService(private val chapterRepository: IChapterRepository): IChapterService {
+class ChapterService(private val chapterRepository: IChapterRepository, private val userRepository: IUserRepository): IChapterService {
 
     @Throws(ClearJudgmentException::class, ChapterNotFoundException::class)
     override fun clearChapter(user: GameUser, chapterId: String): ClearedChapter {
@@ -27,6 +28,7 @@ class ChapterService(private val chapterRepository: IChapterRepository): IChapte
         chapterRepository.addClearedChapter(clearedChapter)
         user.addClearedChapter(clearedChapter)
         user.currentChapter = getCurrentChapter(user)
+        userRepository.save(user)
         return clearedChapter
     }
 

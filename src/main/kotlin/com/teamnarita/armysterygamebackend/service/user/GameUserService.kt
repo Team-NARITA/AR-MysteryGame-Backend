@@ -62,8 +62,9 @@ class GameUserService @Autowired constructor(
         val solvedMystery = mysteryRepository.getSolvedMystery(userId)
         val clearedChapter = chapterRepository.getClearedChapter(userId)
         val usedCoupon = couponRepository.getUsedCoupon(userId)
-        val chapter = chapterRepository.getChapterList().firstOrNull { it.chapterId == userDto.currentChapterId}
-        userBuilder.currentChapter = chapter
+        val chapterList = chapterRepository.getChapterList()
+        val current = chapterList.firstOrNull { it.chapterId == userDto.currentChapterId }
+        userBuilder.currentChapter = current
         userBuilder.solvedMystery = solvedMystery
         userBuilder.clearedChapter = clearedChapter
         userBuilder.usedCoupon = usedCoupon
