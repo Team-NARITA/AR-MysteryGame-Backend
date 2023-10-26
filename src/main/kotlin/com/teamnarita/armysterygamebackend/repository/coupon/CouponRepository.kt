@@ -54,7 +54,7 @@ class CouponRepository(private val jdbcTemplate: JdbcTemplate): ICouponRepositor
     private class UsedCouponRowMapper: RowMapper<UsedCoupon> {
         override fun mapRow(rs: ResultSet, rowNum: Int): UsedCoupon {
             val userId = rs.getString("user_id")
-            val couponId = rs.getString("mysteryId")
+            val couponId = rs.getString("coupon_id")
             val usedAt = rs.getLong("solved_at")
             return UsedCoupon(userId, couponId, usedAt)
         }
