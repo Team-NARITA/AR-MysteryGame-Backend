@@ -1,0 +1,32 @@
+[
+  {
+    "type": "text",
+    "sender": "チュートリアル",
+    "isUser": false,
+    "content": "東京電子専門学校の学園祭にようこそ"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "私はこのゲームの案内人「アイ」、よろしくね！"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "学校を周りながら謎を解くことで景品や情報系の屋台で使えるクーポンがもらえるよ"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "[第一問目] \n今回の学園祭のテーマ名は?"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "chapter1-01",
+    "hint": "パンフレットやポスターに書いてあるかも?"
+  }
+]

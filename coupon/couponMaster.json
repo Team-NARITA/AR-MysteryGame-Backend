@@ -1,0 +1,24 @@
+[
+  {
+    "couponId": "narita-ya01",
+    "couponName": "たこ焼き無料クーポン",
+    "storeName": "なりたや",
+    "storePlace": "1号館9階",
+    "discountItem": "たこ焼き",
+    "originalPrice": 150,
+    "discountedPrice": 100,
+    "whenChapter": "prologue",
+    "thumbnail": "https://cdn.rain1208.com/takoyaki.webp"
+  },
+  {
+    "couponId": "narita-ya02",
+    "couponName": "たこ焼き無料クーポン",
+    "storeName": "なりたや",
+    "storePlace": "1号館9階",
+    "discountItem": "たこ焼き",
+    "originalPrice": 150,
+    "discountedPrice": 100,
+    "whenChapter": "prologue",
+    "thumbnail": "https://cdn.rain1208.com/takoyaki.webp"
+  }
+]

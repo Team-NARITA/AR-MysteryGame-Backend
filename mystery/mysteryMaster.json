@@ -1,32 +1,10 @@
 [
   {
     "mysteryId": "tutorial-01",
-    "mysteryText": "",
-    "mysteryDescription": "",
-    "answers": [""]
+    "answers": ["2", "２"]
   },
   {
-    "mysteryId": "mystery-01",
-    "mysteryText": "",
-    "mysteryDescription": "",
-    "answers": [""]
-  },
-  {
-    "mysteryId": "mystery-02",
-    "mysteryText": "",
-    "mysteryDescription": "",
-    "answers": [""]
-  },
-  {
-    "mysteryId": "mystery-03",
-    "mysteryText": "",
-    "mysteryDescription": "",
-    "answers": [""]
-  },
-  {
-    "mysteryId": "mystery-04",
-    "mysteryText": "",
-    "mysteryDescription": "",
-    "answers": [""]
+    "mysteryId": "chapter1-01",
+    "answers": ["TEC FESTA", "tec festa", "TECFESTA", "tecfesta"]
   }
 ]

@@ -1,0 +1,48 @@
+[
+  {
+    "type": "text",
+    "sender": "チュートリアル",
+    "isUser": false,
+    "content": "こんにちは"
+  },
+  {
+    "type": "text",
+    "sender": "チュートリアル",
+    "isUser": false,
+    "content": "もう一つのデンパガクエン～謎解きゲーム～をプレイしていただきありがとうございます。"
+  },
+  {
+    "type": "image",
+    "sender": "チュートリアル",
+    "isUser": false,
+    "content": "https://cdn.rain1208.com/main-visual-anim.webp"
+  },
+  {
+    "type": "text",
+    "sender": "チュートリアル",
+    "isUser": false,
+    "content": "まずはメッセージの送信です 下のボタンから返信する文を選ぶことができます"
+  },
+  {
+    "type": "button",
+    "isUser": true,
+    "content": ["こんにちは"]
+  },
+  {
+    "type": "text",
+    "sender": "チュートリアル",
+    "isUser": false,
+    "content": "[問題1] 1+1=?"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "tutorial-01"
+  },
+  {
+    "type": "text",
+    "sender": "チュートリアル",
+    "isUser": false,
+    "content": "正解！ チュートリアル終わり"
+  }
+]
