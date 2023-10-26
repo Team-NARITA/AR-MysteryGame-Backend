@@ -8,6 +8,6 @@ interface IChapterRepository {
     fun loadChapterMaster()
     fun getChapterList(): LinkedHashSet<ChapterData>
     fun getChapterFile(chapterId: String): File
-    fun getClearedChapter(userId: String): HashSet<ClearedChapter>
+    fun getClearedChapter(userId: String): MutableSet<ClearedChapter>
     fun addClearedChapter(clearedChapter: ClearedChapter)
 }

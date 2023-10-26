@@ -12,7 +12,7 @@ class GameUser private constructor(
     var role: UserRole,
     var currentChapter: ChapterData,
     val solvedMystery: HashSet<SolvedMystery>,
-    val clearedChapter: HashSet<ClearedChapter>,
+    val clearedChapter: MutableSet<ClearedChapter>,
     val usedCoupon: HashSet<UsedCoupon>
 ) {
     fun addSolvedMystery(mystery: SolvedMystery) {
@@ -43,7 +43,7 @@ class GameUser private constructor(
     ) {
         var currentChapter: ChapterData? = null
         var solvedMystery: HashSet<SolvedMystery> = hashSetOf()
-        var clearedChapter: HashSet<ClearedChapter> = hashSetOf()
+        var clearedChapter: MutableSet<ClearedChapter> = hashSetOf()
         var usedCoupon: HashSet<UsedCoupon> = hashSetOf()
 
         fun build(): GameUser {
