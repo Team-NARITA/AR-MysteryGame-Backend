@@ -67,6 +67,11 @@
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
+    "type": "button",
+    "isUser": true,
+    "content": ["もう楽しんでる!", "これから楽しむ!"]
+  },
+  {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
@@ -90,8 +95,13 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "1号館の9階からいい香りがするね 何か作っているのかな？",
+    "content": "1号館の9階からいい香りがするね 何かあるのかな？",
     "avatar": "https://cdn.rain1208.com/face-01.webp"
+  },
+  {
+    "type": "button",
+    "isUser": true,
+    "content": ["飲食の屋台？"]
   },
   {
     "type": "text",
