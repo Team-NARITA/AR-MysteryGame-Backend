@@ -13,8 +13,6 @@ class MysteryService(private val mysteryRepository: IMysteryRepository): IMyster
     private val timeUtil = TimeUtil
 
     override fun solveMystery(user: GameUser, mysteryId: String): SolvedMystery {
-        if (!user.currentChapter.belongMysteries.contains(mysteryId))
-            throw UnauthorizedAccessException(user.userId, "現在のチャプターに存在しない謎です")
         if (user.isSolvedMystery(mysteryId)) return user.solvedMystery.first { it.mysteryId == mysteryId }
         val solvedMystery = SolvedMystery(user.userId, mysteryId, timeUtil.getCurrentTimeStamp())
         mysteryRepository.addSolvedMystery(solvedMystery)

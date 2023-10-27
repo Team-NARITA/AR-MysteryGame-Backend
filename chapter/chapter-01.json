@@ -24,7 +24,19 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "さっそく[第一問目] \n今回の学園祭のテーマ名は?",
+    "content": "準備はいい？",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "button",
+    "isUser": true,
+    "content": ["準備OK", "もちろん！"]
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "いい返事だね, じゃあ[第1問] \n今回の学園祭のテーマ名は?",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
@@ -105,14 +117,21 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "なりたやのたこ焼き美味しそう!! このゲームをクリアすると半額になるクーポンがもわえるらしいわよ",
+    "content": "正解！なりたやのたこ焼き美味しそう!! このゲームをクリアすると半額になるクーポンがもわえるらしいわよ",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "[第4問]この学校の教室には番号が割り振られている 1122教室は1号館何階?",
+    "content": "飲食系の企画は1号館の3階と9階にあるよ! 時間があれば寄ってみよう",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "[第4問]\nこの学校の教室には番号が割り振られている 1122教室は1号館何階?",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
