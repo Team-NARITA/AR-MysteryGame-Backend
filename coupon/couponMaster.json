@@ -18,7 +18,7 @@
     "discountItem": "たこ焼き",
     "originalPrice": 200,
     "discountedPrice": 100,
-    "whenChapter": "",
+    "whenChapter": "chapter-02",
     "thumbnail": "https://cdn.rain1208.com/takoyaki.webp"
   }
 ]
