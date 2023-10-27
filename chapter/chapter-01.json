@@ -167,5 +167,10 @@
     "isUser": false,
     "content": "参加賞のクーポンを付与したよクーポンページを確認してね, クーポンを持って本部に行くと参加賞のお菓子がもらえるよ",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "isUser": false,
+    "content": "チャプタークリア"
   }
 ]

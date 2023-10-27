@@ -50,5 +50,10 @@
     "sender": "チュートリアル",
     "isUser": false,
     "content": "正解！ チュートリアル終わり"
+  },
+  {
+    "type": "text",
+    "isUser": false,
+    "content": "チュートリアルクリア"
   }
 ]
