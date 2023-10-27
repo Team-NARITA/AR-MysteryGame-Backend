@@ -52,8 +52,8 @@
     "content": "正解！ チュートリアル終わり"
   },
   {
-    "type": "text",
-    "isUser": false,
-    "content": "チュートリアルクリア"
+    "type": "button",
+    "isUser": true,
+    "content": ["チュートリアルクリア"]
   }
 ]

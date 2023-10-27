@@ -162,8 +162,8 @@
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
-    "type": "text",
-    "isUser": false,
-    "content": "チャプタークリア"
+    "type": "button",
+    "isUser": true,
+    "content": ["チャプタークリア"]
   }
 ]

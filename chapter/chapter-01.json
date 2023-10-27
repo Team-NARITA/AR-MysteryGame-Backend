@@ -107,7 +107,14 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "[第3問] \n 情報処理科の企画 なりたやのたこ焼きは1パック何個入っている?",
+    "content": "あそこになりたや(たこ焼き)があるね!",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "ここで問題 [第3問] \n 情報処理科の企画 なりたやのたこ焼きは1パック何個入っている?",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
@@ -172,8 +179,8 @@
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
-    "type": "text",
-    "isUser": false,
-    "content": "チャプタークリア"
+    "type": "button",
+    "isUser": true,
+    "content": ["チャプタークリア"]
   }
 ]
