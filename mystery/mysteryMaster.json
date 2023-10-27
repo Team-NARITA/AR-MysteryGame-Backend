@@ -26,5 +26,9 @@
   {
     "mysteryId": "c2-m2",
     "answers": ["7", "7羽", "７", "７羽"]
+  },
+  {
+    "mysteryId": "c2-m3",
+    "answers": ["c", "C", "ｃ", "Ｃ"]
   }
 ]

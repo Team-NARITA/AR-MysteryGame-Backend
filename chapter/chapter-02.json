@@ -3,8 +3,13 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "ここから後半戦だよ",
+    "content": "ここから後半戦だよ がんばっていこー!",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "button",
+    "isUser": true,
+    "content": ["おー"]
   },
   {
     "type": "text",
@@ -37,7 +42,7 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "1号館3階には情報処理科2年制 運用コースの企画 '鎌倉チュロス'\n様々なフレーバーのチュロスが売ってるらしい",
+    "content": "1号館3階には情報処理科2年制 運用コースの企画 '鎌倉チュロス'\n様々なフレーバーのチュロスが売ってるって!",
     "avatar": "https://cdn.rain1208.com/face-01.webp"
   },
   {
@@ -55,7 +60,7 @@
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
-    "type": "text",
+    "type": "url",
     "sender": "アイ",
     "isUser": false,
     "content": "https://tec-d216.oops.jp/TEC-FESTA-2023/d2class/",
@@ -71,6 +76,47 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
+    "content": "正解!画像の裏に1匹隠れているなんて 面白いデザインだね",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "情報処理科では先生達がPC操作の基礎からシステム開発まで詳しく教えてくれるよ!",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "そんなPC操作の基礎から1問\n [第7問] 授業ではショートカットキーというものをよく使います文字列をコピーするときに使うショートカットキーはctrlと何キー?",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "c2-m3",
+    "hint": "コピーしたものを張り付けるペースト(Paste)のショートカットキーは 'CTRLキー'と'Pキー'"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "正解! コピー(Copy)は'CTRLキー'と'Cキー'コピーとペーストはよく使うからショートカットキーを覚えると便利だよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "次が最終問題だよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
     "content": "ゲームクリアのおまけになりたや(たこ焼き)で使えるたこ焼き100円引きクーポンをプレゼント!\nクーポンアプリを確認してみてね",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
@@ -80,5 +126,10 @@
     "isUser": false,
     "content": "もう一つのデンパガクエン～謎解きゲーム～をプレイしていただきありがとうございました",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "isUser": false,
+    "content": "チャプタークリア"
   }
 ]
