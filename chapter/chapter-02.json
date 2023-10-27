@@ -3,17 +3,82 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "",
+    "content": "ここから後半戦だよ",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "",
+    "content": "[第5問]\n学校の歴史の問題だよ\n様々な学科がある東京電子専門学校, 昔は何の学校だった？",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
-
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "c2-m1",
+    "hint": "1号館の1階ロビーにヒントがありそう？"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "正解 東京電子専門学校は2023年で創立77年\n始めは「東京ラジオ技術講習所」という名前だったみたい",
+    "avatar": "https://cdn.rain1208.com/face-01.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "1965年に「東京電子専門学校」という名前に変わったらしいよ～",
+    "avatar": "https://cdn.rain1208.com/face-01.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "1号館3階には情報処理科2年制 運用コースの企画 '鎌倉チュロス'\n様々なフレーバーのチュロスが売ってるらしい",
+    "avatar": "https://cdn.rain1208.com/face-01.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "鎌倉チュロスにはwebページがあるそうよ\nページには千鳥紋が何羽かいるわ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "ここで[第6問] \n 鎌倉チュロスのwebサイトに隠されている千鳥は何羽?",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "https://tec-d216.oops.jp/TEC-FESTA-2023/d2class/",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "c2-m2",
+    "hint": "ページの画像のをクリックしてみると...?"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "ゲームクリアのおまけになりたや(たこ焼き)で使えるたこ焼き100円引きクーポンをプレゼント!\nクーポンアプリを確認してみてね",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "もう一つのデンパガクエン～謎解きゲーム～をプレイしていただきありがとうございました",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
   }
 ]

@@ -32,6 +32,12 @@
     "type": "text",
     "sender": "チュートリアル",
     "isUser": false,
+    "content": "次はテキストの入力です 下のボックスに入力してSendボタンで送信できます"
+  },
+  {
+    "type": "text",
+    "sender": "チュートリアル",
+    "isUser": false,
     "content": "[問題1] 1+1=?"
   },
   {

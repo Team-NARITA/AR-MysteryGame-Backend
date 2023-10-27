@@ -17,7 +17,7 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "ただ学校を案内するだけじゃつまらないから問題を解きながら説明していくね",
+    "content": "ただ学校を案内するだけじゃつまらないからクイズ形式で問題を出しながら説明していくね",
     "avatar": "https://cdn.rain1208.com/face-01.webp"
   },
   {
@@ -36,7 +36,7 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "いい返事だね, じゃあ[第1問] \n今回の学園祭のテーマ名は?",
+    "content": "いい返事だね, じゃあ\n[第1問] 今回の学園祭のテーマ名は?",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
@@ -97,7 +97,7 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "1号館の9階からいい香りがするわ 何か作っているのかな？",
+    "content": "1号館の9階からいい香りがするね 何か作っているのかな？",
     "avatar": "https://cdn.rain1208.com/face-01.webp"
   },
   {
@@ -117,7 +117,7 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "正解！なりたやのたこ焼き美味しそう!! このゲームをクリアすると半額になるクーポンがもわえるらしいわよ",
+    "content": "正解！なりたやのたこ焼き美味しそう!! このゲームをクリアすると100円引きになるクーポンがもらえるらしいよ",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
@@ -151,21 +151,21 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "学校の教室番号は少し覚えずらいわよね〜 もちろん私は覚えていたわよ",
+    "content": "学校の教室番号は少し覚えずらいよね〜 もちろん私は覚えていたよ",
     "avatar": "https://cdn.rain1208.com/face-02.webp"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "本ゲーム もう一つのデンパガクエンの本部の教室でもあるよ\n謎が解けない場合やバグが発生した場合のサポート、参加賞のお菓子クーポンの引き換えもできるらしいわ",
+    "content": "本ゲーム もう一つのデンパガクエンの本部の教室でもあるよ\n謎が解けない場合やバグが発生した場合のサポート、参加賞のお菓子クーポンの引き換えもできるらしい",
     "avatar": "https://cdn.rain1208.com/face-01.webp"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "参加賞のクーポンを付与したわクーポンページを確認してね, クーポンを持って本部に行くと参加賞のお菓子がもらえるよ",
+    "content": "参加賞のクーポンを付与したよクーポンページを確認してね, クーポンを持って本部に行くと参加賞のお菓子がもらえるよ",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   }
 ]

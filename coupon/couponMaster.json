@@ -2,7 +2,7 @@
   {
     "couponId": "mysterygame-award",
     "couponName": "参加賞のお菓子",
-    "storeName": "",
+    "storeName": "参加賞",
     "storePlace": "1号館12階 1122教室",
     "discountItem": "お菓子",
     "originalPrice": 0,
@@ -12,7 +12,7 @@
   },
   {
     "couponId": "narita-ya01",
-    "couponName": "たこ焼き半額クーポン",
+    "couponName": "たこ焼き100円引きクーポン",
     "storeName": "なりたや",
     "storePlace": "1号館9階",
     "discountItem": "たこ焼き",
