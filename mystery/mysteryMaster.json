@@ -13,7 +13,7 @@
   },
   {
     "mysteryId": "c1-m3",
-    "answers": ["6", "6つ", "6個", "６", "６つ", "６個"]
+    "answers": ["エレクトロニクス", "えれくとろにくす", "ELECTRONICS", "electronics"]
   },
   {
     "mysteryId": "c1-m4",
@@ -30,5 +30,9 @@
   {
     "mysteryId": "c2-m3",
     "answers": ["c", "C", "ｃ", "Ｃ"]
+  },
+  {
+    "mysteryId": "c2-m4",
+    "answers": ["5", "5つ", "5個", "５", "５つ", "５個"]
   }
 ]

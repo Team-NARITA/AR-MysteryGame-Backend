@@ -117,7 +117,34 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "ゲームクリアのおまけになりたや(たこ焼き)で使えるたこ焼き100円引きクーポンをプレゼント!\nクーポンアプリを確認してみてね",
+    "content": "[第8問] \n今年の学園祭で情報処理科2年制の企画は何個ある？",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "c2-m4",
+    "hint": "2年制の情報処理科は情報処理科、3年制の情報処理科3年制と書かれることが多い"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "正解!! 情報処理科2年制の企画には鎌倉チュロス,\nチェきんぼう\nなりたや(たこ焼き)\nなりたや(カフェ),\nもう一つのデンパガクエン～AR謎解きゲーム～\nの5つがあるよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "このゲームは情報処理科の学生が学校で学んだことを生かして作ったらしいよ〜",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "他の情報処理科の企画にもぜひよっていってね",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
@@ -125,6 +152,13 @@
     "sender": "アイ",
     "isUser": false,
     "content": "もう一つのデンパガクエン～謎解きゲーム～をプレイしていただきありがとうございました",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "ゲームクリアのおまけになりたや(たこ焼き)で使えるたこ焼き100円引きクーポンをプレゼント!\nクーポンアプリを確認してみてね",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {

@@ -70,27 +70,20 @@
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "続いて[第2問] \n今年の学園祭で情報処理科2年制の企画は何個ある？",
+    "content": "続いて[第2問] \n 学園祭のテーマにも使われている東京電子専門学校の略称「TEC」の 'E'は何の略？",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
     "type": "input",
     "isUser": true,
     "mysteryId": "c1-m2",
-    "hint": "2年制の情報処理科は情報処理科、3年制の情報処理科3年制と書かれることが多い"
+    "hint": "5号館の1階や学園祭特設サイトに書かれているよ"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "正解!! 情報処理科2年制の企画には鎌倉チュロス,\nチェきんぼう\nなりたや(たこ焼き)\nなりたや(カフェ),\nもう一つのデンパガクエン～AR謎解きゲーム～\nの5つがあるよ",
-    "avatar": "https://cdn.rain1208.com/face-00.webp"
-  },
-  {
-    "type": "text",
-    "sender": "アイ",
-    "isUser": false,
-    "content": "このゲームは情報処理科の学生が学校で学んだことを生かして作ったらしいよ〜",
+    "content": "正解!! TOKYO ELECTRONICS COLLEGEの頭文字をとってTECとなっているよ",
     "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
