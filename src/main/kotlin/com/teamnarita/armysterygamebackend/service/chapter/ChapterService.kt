@@ -65,10 +65,12 @@ class ChapterService(private val chapterRepository: IChapterRepository, private 
 
     override fun getAuthorizedChapterByUser(user: GameUser): List<ChapterData> {
         val chapters = mutableListOf<ChapterData>()
-        for (clearedChapter in user.clearedChapter.reversed()) {
+        for (clearedChapter in user.clearedChapter) {
             chapters.add(getChapterDataByUser(user, clearedChapter.chapterId))
         }
-        chapters.add(getCurrentChapter(user))
+        if (!chapters.any { it.chapterId == user.currentChapter.chapterId }) {
+            chapters.add(getCurrentChapter(user))
+        }
         return chapters.toList()
     }
 

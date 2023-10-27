@@ -41,7 +41,7 @@ class ChapterRepository(private val jdbcTemplate: JdbcTemplate): IChapterReposit
     }
 
     override fun getClearedChapter(userId: String): MutableSet<ClearedChapter> {
-        val clearedChapter = jdbcTemplate.query("SELECT * FROM cleared_chapter WHERE user_id=?", ClearedChapterRowMapper(), userId)
+        val clearedChapter = jdbcTemplate.query("SELECT * FROM cleared_chapter WHERE user_id=? ORDER BY id", ClearedChapterRowMapper(), userId)
         return clearedChapter.toMutableSet()
     }
 
