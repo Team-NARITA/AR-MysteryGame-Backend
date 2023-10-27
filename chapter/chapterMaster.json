@@ -10,7 +10,7 @@
     "chapterId": "chapter-01",
     "chapterName": "チャプター1",
     "chapterDescription": "",
-    "belongMysteries": ["chapter1-01"],
+    "belongMysteries": ["c1-m1", "c1-m2", "c1-m3", "c1-m4"],
     "nextChapterId": "chapter-02"
   },
   {

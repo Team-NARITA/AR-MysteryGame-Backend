@@ -1,32 +1,152 @@
 [
   {
     "type": "text",
-    "sender": "チュートリアル",
+    "sender": "アイ",
     "isUser": false,
-    "content": "東京電子専門学校の学園祭にようこそ"
+    "content": "こんにちは、ゲームをプレイしてくれてありがとう!",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "私はこのゲームの案内人「アイ」、よろしくね！"
+    "content": "今回の案内をする「アイ」っていいます学校内のことならなんでも知ってるよ⭐️",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "学校を周りながら謎を解くことで景品や情報系の屋台で使えるクーポンがもらえるよ"
+    "content": "ただ学校を案内するだけじゃつまらないから問題を解きながら説明していくね",
+    "avatar": "https://cdn.rain1208.com/face-01.webp"
   },
   {
     "type": "text",
     "sender": "アイ",
     "isUser": false,
-    "content": "[第一問目] \n今回の学園祭のテーマ名は?"
+    "content": "さっそく[第一問目] \n今回の学園祭のテーマ名は?",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
   },
   {
     "type": "input",
     "isUser": true,
-    "mysteryId": "chapter1-01",
+    "mysteryId": "c1-m1",
     "hint": "パンフレットやポスターに書いてあるかも?"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "今回の学園祭のテーマは「TEC FESTA」",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "今年は本部企画が9個、学科企画が26個の計35個の企画が開催されているよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "東京電子専門学校の学園祭を楽しんでね！！",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "続いて[第2問] \n今年の学園祭で情報処理科2年制の企画は何個ある？",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "c1-m2",
+    "hint": "2年制の情報処理科は情報処理科、3年制の情報処理科3年制と書かれることが多い"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "正解!! 情報処理科2年制の企画には鎌倉チュロス,\nチェきんぼう\nなりたや(たこ焼き)\nなりたや(カフェ),\nもう一つのデンパガクエン～AR謎解きゲーム～\nの5つがあるよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "このゲームは情報処理科の学生が学校で学んだことを生かして作ったらしいよ〜",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "1号館の9階からいい香りがするわ 何か作っているのかな？",
+    "avatar": "https://cdn.rain1208.com/face-01.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "[第3問] \n 情報処理科の企画 なりたやのたこ焼きは1パック何個入っている?",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "c1-m3",
+    "hint": "学校中になりたやのポスターがあるよ 探してみよう"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "なりたやのたこ焼き美味しそう!! このゲームをクリアすると半額になるクーポンがもわえるらしいわよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "[第4問]この学校の教室には番号が割り振られている 1122教室は1号館何階?",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "input",
+    "isUser": true,
+    "mysteryId": "c1-m4",
+    "hint": "教室の番号は,何号館か,何階か,の数字が含まれている(3号館以外)"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "1122教室は1号館12階, この学校の教室の番号は3号館以外4桁で1桁目は何号館か2桁目と3桁目は何回かを表しているよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "学校の教室番号は少し覚えずらいわよね〜 もちろん私は覚えていたわよ",
+    "avatar": "https://cdn.rain1208.com/face-02.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "本ゲーム もう一つのデンパガクエンの本部の教室でもあるよ\n謎が解けない場合やバグが発生した場合のサポート、参加賞のお菓子クーポンの引き換えもできるらしいわ",
+    "avatar": "https://cdn.rain1208.com/face-01.webp"
+  },
+  {
+    "type": "text",
+    "sender": "アイ",
+    "isUser": false,
+    "content": "参加賞のクーポンを付与したわクーポンページを確認してね, クーポンを持って本部に行くと参加賞のお菓子がもらえるよ",
+    "avatar": "https://cdn.rain1208.com/face-00.webp"
   }
 ]

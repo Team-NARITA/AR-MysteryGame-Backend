@@ -1,24 +1,24 @@
 [
   {
-    "couponId": "narita-ya01",
-    "couponName": "たこ焼き無料クーポン",
-    "storeName": "なりたや",
-    "storePlace": "1号館9階",
-    "discountItem": "たこ焼き",
-    "originalPrice": 150,
-    "discountedPrice": 100,
-    "whenChapter": "prologue",
-    "thumbnail": "https://cdn.rain1208.com/takoyaki.webp"
+    "couponId": "mysterygame-award",
+    "couponName": "参加賞のお菓子",
+    "storeName": "",
+    "storePlace": "1号館12階 1122教室",
+    "discountItem": "お菓子",
+    "originalPrice": 0,
+    "discountedPrice": 0,
+    "whenChapter": "chapter-01",
+    "thumbnail": "https://cdn.rain1208.com/okashi.webp"
   },
   {
-    "couponId": "narita-ya02",
-    "couponName": "たこ焼き無料クーポン",
+    "couponId": "narita-ya01",
+    "couponName": "たこ焼き半額クーポン",
     "storeName": "なりたや",
     "storePlace": "1号館9階",
     "discountItem": "たこ焼き",
-    "originalPrice": 150,
+    "originalPrice": 200,
     "discountedPrice": 100,
-    "whenChapter": "prologue",
+    "whenChapter": "",
     "thumbnail": "https://cdn.rain1208.com/takoyaki.webp"
   }
 ]
